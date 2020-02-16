@@ -13,6 +13,8 @@
   ```sh
   ln -s $HOME/Projects/dotfiles/.config/git $HOME/.config/git
   ln -s $HOME/Projects/dotfiles/.config/nvim $HOME/.config/nvim
+  cp ./.zshenv ~/.zshenv
+  ln -s $HOME/Projects/dotfiles/.config/zsh $HOME/.config/zsh
   ```
 
 4. Install `asdf`
