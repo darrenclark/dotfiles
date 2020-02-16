@@ -1,0 +1,42 @@
+[user]
+	name = Darren Clark
+	email = darrenjoelclark@thescore.com
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	staged = "diff --cached"
+	st = status
+	mergep = merge -s recursive -X patience
+[core]
+	editor = nvim
+[push]
+	default = simple
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+	ff = false
+[mergetool]
+	prompt = false
+[mergetool "vimdiff"]
+	prompt = true
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[credential]
+	helper = osxkeychain
+[diff "provisioning_profile"]
+	textconv = "cat | grep -a '<'"
+[diff]
+	submodule = diff
+[commit]
+	verbose = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]
+	sslVersion = tlsv1.2
