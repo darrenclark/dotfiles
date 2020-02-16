@@ -1,0 +1,241 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.config/zsh/oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="steeef"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH="/usr/local/bin:/usr/local/share/dotnet:/usr/bin:/bin:/usr/sbin:/sbin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+###
+### Personal customization
+###
+
+export EDITOR='nvim'
+
+export PATH="$HOME/go/bin:$HOME/.rbenv/bin:$HOME/bin:$PATH"
+
+alias g=git
+alias b='bundle exec'
+alias e=$EDITOR
+
+# to "fix" git-diff output
+export LESS="-F -X -R"
+
+alias pretty-json='python -m json.tool'
+
+#function pi_find_podfile_dir {
+#	p="$(pwd)"
+#	while [ "$p" != "/" ]; do
+#		results="$(find "$p" -t f -maxdepth 1 -mindepth 1 "Podfile")"
+#		if [ -z "$results" ]; then
+#			echo "$(pwd)/$results"
+#			break
+#		fi
+#	done
+#}
+
+function pi {
+	last_fetch_date="$(cat ~/.last_pod_fetch_date 2>/dev/null)"
+	current_date="$(date +%Y-%m-%d)"
+	if [ "$current_date" != "$last_fetch_date" ]; then 
+		echo -n "$current_date" > ~/.last_pod_fetch_date
+		bundle exec pod install
+	else
+		COCOAPODS_DISABLE_STATS=1 bundle exec pod install --no-repo-update
+	fi
+}
+
+alias kill_xcode="ps aux | grep -i xcode | awk '{ print \$2 }' | xargs -n 1 -- kill -9"
+alias decimate_xcode="ps aux | grep -i xcode | awk '{ print \$2 }' | xargs -n 1 -- kill -9; rm -rf ~/Library/Developer/Xcode/DerivedData/"
+
+function open_xcode {
+	open "/Applications/Old Xcodes/Xcode-$1.app"
+}
+
+function burn_it_down {
+	if [ -z "$1" ]; then
+		echo "Please pass something to grep for (in ps aux)";
+	else
+		ps aux | grep -i "$1" | awk '{ print $2 }' | xargs -n 1 -- kill -9
+	fi
+}
+
+# Hub
+#eval "$(hub alias -s)"
+
+
+# rbenv
+#eval "$(rbenv init -)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+function finv () {
+	pushd $HOME/Projects/ansible-playbooks
+    test -n "$ANSIBLE_VROOT" || source ./ansible/bin/activate
+	./scripts/filter-inventory $*
+	popd
+	deactivate
+}
+
+function fix_git_prompt () {
+	echo -en "Delete these files:\n\n"
+	git ls-files --other --exclude-standard
+}
+
+
+# For homebrew go
+#export GOROOT=/usr/local/opt/go/libexec
+#export GOPATH=$HOME/go
+
+# For 1.9.2 manual install
+#export GOROOT=/usr/local/go1.9.2
+#export GOPATH=$HOME/go1.9.2
+
+#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+#alias gb=$GOPATH/bin/gb
+
+
+export PATH=$PATH:$HOME/.cargo/bin
+
+# iex history
+export ERL_AFLAGS="-kernel shell_history enabled"
+export ERL_LIBS="$HOME/.config/iex"
+
+export GPG_TTY=$(tty)
+
+
+alias dc=docker-compose
+alias dc-run='dc run --rm '
+alias docker-kill-all-running='docker kill $(docker ps -q)'
+alias docker-delete-all-containers='docker rm $(docker ps -a -q)'
+alias docker-delete-all-images='docker rmi $(docker images -q)'
+
+# Kubertnetes prompt
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+function k_set_prod_background() {
+	if [[ "$KUBE_PS1_CONTEXT" == *prod* ]]; then
+		echo -e "\033]50;SetProfile=Prod\a"
+	else
+		echo -e "\033]50;SetProfile=\a"
+	fi
+}
+export PROMPT="${PROMPT:0:113}"' $(kube_ps1)$(k_set_prod_background)'"${PROMPT:113}"
+
+alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
+
+function ks () {
+	pod="$(kubectl get pods | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
+	[[ ! -z "$pod" ]] && kubectl exec -ti "$pod" -- bash
+}
+
+# let vim see Ctrl-Q
+stty -ixon
+
+# asdf
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
+# patch GOPATH, perhaps I shouldn't have installed it via asdf..
+export GOPATH="$HOME/go:$(go env GOPATH)"
+
+alias guu='git status --porcelain | grep "^UU " | sed "s/...//"'
+alias ec='e $(guu)'
+
+alias vless='nvim -u /usr/local/Cellar/neovim/0.3.4/share/nvim/runtime/macros/less.vim'
+
+p() { cd "$HOME"/Projects/"$1"; }
+_p() { pushd "$HOME"/Projects >/dev/null; COMPREPLY=("$2"*/); popd >/dev/null; }
+complete -F _p p
+
+alias fv='vim -O $(fzf -m --preview "bat --style=numbers,changes --color always {}")'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dclark/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dclark/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dclark/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dclark/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+iterm2_print_user_vars() {
+  #iterm2_set_user_var githubHttp $(git remote get-url origin | sed 's/git@/https:\/\//; s/github.com:/github.com\//')
+}
+export ITERM2_SQUELCH_MARK=1
+source ~/.iterm2_shell_integration.zsh
+
+#export PROMPT="${PROMPT:0:1}%{$(iterm2_prompt_mark)%}${PROMPT:1}"

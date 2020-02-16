@@ -31,3 +31,6 @@
 [submodule ".config/nvim/pack/my-plugins/start/vim-test"]
 	path = .config/nvim/pack/my-plugins/start/vim-test
 	url = https://github.com/janko/vim-test
+[submodule ".config/zsh/oh-my-zsh"]
+	path = .config/zsh/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh
