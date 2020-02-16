@@ -2,11 +2,30 @@
 
 ## Manual steps
 
-- Install latest git
-- Clone this to `~/Projects/dotfiles`
-- Symlinks
+1. Install `brew` and then
+  ```sh
+  brew install git openssl neovim
   ```
+
+2. Clone this to `~/Projects/dotfiles`
+
+3. Symlinks
+  ```sh
   ln -s $HOME/Projects/dotfiles/.config/git $HOME/.config/git
+  ln -s $HOME/Projects/dotfiles/.config/nvim $HOME/.config/nvim
+  ```
+
+4. Install `asdf`
+  ```sh
+  # Erlang
+  asdf plugin install erlang
+  export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=/usr/local/opt/openssl@1.1"
+  export KERL_BUILD_DOCS=yes
+  asdf install erlang <version>
+
+  # Elixir
+  asdf plugin install elixir
+  asdf install elixir <version>
   ```
 
 ## TODO
