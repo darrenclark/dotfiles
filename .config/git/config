@@ -1,6 +1,6 @@
 [user]
 	name = Darren Clark
-	email = darrenjoelclark@thescore.com
+	email = darrenjoelclark@icloud.com
 [alias]
 	ci = commit
 	co = checkout
@@ -27,8 +27,6 @@
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [credential]
 	helper = osxkeychain
-[diff "provisioning_profile"]
-	textconv = "cat | grep -a '<'"
 [diff]
 	submodule = diff
 [commit]
@@ -40,3 +38,6 @@
 	required = true
 [http]
 	sslVersion = tlsv1.2
+
+[includeIf "gitdir:/Users/dclark/"]
+	path = work.inc
