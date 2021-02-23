@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+git submodule update --init --recursive
+
 mkdir -v -p "$HOME/.config"
 
 for dir in .config/*; do
