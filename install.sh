@@ -4,6 +4,7 @@ set -euo pipefail
 
 git submodule update --init --recursive
 
+# Copy configs
 mkdir -v -p "$HOME/.config"
 
 for dir in .config/*; do
@@ -11,5 +12,12 @@ for dir in .config/*; do
 done
 
 for file in .zshenv .iterm2_shell_integration.zsh .asdf; do
+  ln -h -v -s "$PWD/$file" "$HOME/$file" || true
+done
+
+# Copy shell scripts
+mkdir -v -p "$HOME/bin"
+
+for file in bin/*; do
   ln -h -v -s "$PWD/$file" "$HOME/$file" || true
 done

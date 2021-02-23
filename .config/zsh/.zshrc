@@ -222,11 +222,11 @@ complete -F _p p
 
 alias fv='vim -O $(fzf -m --preview "bat --style=numbers,changes --color always {}")'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dclark/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dclark/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/dclark/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dclark/bin/google-cloud-sdk/completion.zsh.inc'; fi
+# glcoud
+if [ -f  "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then
+	source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+	source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
 
 iterm2_print_user_vars() {
   #iterm2_set_user_var githubHttp $(git remote get-url origin | sed 's/git@/https:\/\//; s/github.com:/github.com\//')

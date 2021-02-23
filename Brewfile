@@ -5,6 +5,7 @@ tap "homebrew/cask-fonts"
 brew "openssl"
 
 # Binaries
+brew "aws-iam-authenticator"
 brew "git"
 brew "kubectl"
 brew "kubectx"
@@ -13,6 +14,7 @@ brew "neovim"
 
 # Apps
 cask "docker"
+cask "google-cloud-sdk"
 
 # Fonts
 cask "font-jetbrains-mono"

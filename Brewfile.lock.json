@@ -5,7 +5,7 @@
         "revision": "568b3a271cb2a34388c2919a65b69a0cbd28efa2"
       },
       "homebrew/cask": {
-        "revision": "527f59245beb6cd1d9bd1d6f3ebcb3121a2b1e05"
+        "revision": "12eb52b5dbe915a146911fe43c323f5f1764803b"
       }
     },
     "brew": {
@@ -120,6 +120,33 @@
       "kube-ps1": {
         "version": "0.7.0",
         "bottle": false
+      },
+      "aws-iam-authenticator": {
+        "version": "0.5.2_1",
+        "bottle": {
+          "rebuild": 0,
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "root_url": "https://homebrew.bintray.com/bottles",
+          "files": {
+            "arm64_big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/aws-iam-authenticator-0.5.2_1.arm64_big_sur.bottle.tar.gz",
+              "sha256": "0374175f7d0a1965de553e0a4d990d92690d5984c9f1fd0275384f58cd1ec921"
+            },
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/aws-iam-authenticator-0.5.2_1.big_sur.bottle.tar.gz",
+              "sha256": "50e376c205f257a76486f4ca4da86e6eaaf48231970f13be2039727a9c7e3e31"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/aws-iam-authenticator-0.5.2_1.catalina.bottle.tar.gz",
+              "sha256": "99c0b3d4f1987306f04553d0d8f234d1d105131c844d14c2197b8aa21602f6a1"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/aws-iam-authenticator-0.5.2_1.mojave.bottle.tar.gz",
+              "sha256": "5c722bc544bfaa0d51c903aabe81e1beb4c4f607c5559340fc6a3b2aecc8d5f2"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -133,6 +160,12 @@
         "version": "3.1.0,51484",
         "options": {
           "full_name": "docker"
+        }
+      },
+      "google-cloud-sdk": {
+        "version": "latest",
+        "options": {
+          "full_name": "google-cloud-sdk"
         }
       }
     },
