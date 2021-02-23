@@ -6,6 +6,7 @@ brew "openssl"
 
 # Binaries
 brew "aws-iam-authenticator"
+brew "fzf"
 brew "git"
 brew "kubectl"
 brew "kubectx"
