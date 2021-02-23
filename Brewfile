@@ -5,6 +5,7 @@ tap "homebrew/cask-fonts"
 brew "openssl"
 
 # Binaries
+brew "awscli"
 brew "aws-iam-authenticator"
 brew "fzf"
 brew "git"
