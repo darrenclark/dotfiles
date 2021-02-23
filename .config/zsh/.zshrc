@@ -210,7 +210,7 @@ stty -ixon
 
 # asdf
 source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+source $HOME/.asdf/completions/asdf.zsh
 
 # patch GOPATH, perhaps I shouldn't have installed it via asdf..
 export GOPATH="$HOME/go:$(go env GOPATH)"
