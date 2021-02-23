@@ -45,7 +45,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git asdf)
 
 # User configuration
 
@@ -207,10 +207,6 @@ function ks () {
 
 # let vim see Ctrl-Q
 stty -ixon
-
-# asdf
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.zsh
 
 # patch GOPATH, perhaps I shouldn't have installed it via asdf..
 export GOPATH="$HOME/go:$(go env GOPATH)"
