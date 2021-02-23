@@ -2,7 +2,10 @@
   "entries": {
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "8030e59f3b5c66f77af004ee2ea34375d00e50ed"
+        "revision": "568b3a271cb2a34388c2919a65b69a0cbd28efa2"
+      },
+      "homebrew/cask": {
+        "revision": "527f59245beb6cd1d9bd1d6f3ebcb3121a2b1e05"
       }
     },
     "brew": {
@@ -86,14 +89,62 @@
             }
           }
         }
+      },
+      "kubectl": {
+        "version": "1.20.4",
+        "bottle": {
+          "rebuild": 0,
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "root_url": "https://homebrew.bintray.com/bottles",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.20.4.big_sur.bottle.tar.gz",
+              "sha256": "afb2863bbea76a02a679f613a8dff63014c7abee3ca10db76911a40d5512e2c4"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.20.4.catalina.bottle.tar.gz",
+              "sha256": "26cd1aaba450b81ae1f0536433f06ecd001be015b1d4cd2ee84ac0745176a505"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.20.4.mojave.bottle.tar.gz",
+              "sha256": "20e9bc152b7e468fb2cc298934eac84fa606cf222d629deed4b6ad105eea3e90"
+            }
+          }
+        }
+      },
+      "kubectx": {
+        "version": "0.9.1",
+        "bottle": false
+      },
+      "kube-ps1": {
+        "version": "0.7.0",
+        "bottle": false
       }
     },
     "cask": {
       "font-jetbrains-mono": {
-        "version": null,
+        "version": "2.225",
         "options": {
           "full_name": "font-jetbrains-mono"
         }
+      },
+      "docker": {
+        "version": "3.1.0,51484",
+        "options": {
+          "full_name": "docker"
+        }
+      }
+    },
+    "mas": {
+      "1Password": null,
+      "Bear": {
+        "id": "1091189122",
+        "version": "1.8.2"
+      },
+      "Slack": {
+        "id": "803453959",
+        "version": "4.13.0"
       }
     }
   },
@@ -102,7 +153,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "3.0.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "f50607d274c4d1db1ff673b575a7fa51eb3314ea",
+        "Homebrew/homebrew-core": "d2b25e00f469f2b11b32e461b4665453c7df4856",
         "CLT": "12.4.0.0.1.1610135815",
         "Xcode": "12.0",
         "macOS": "10.15.7"
