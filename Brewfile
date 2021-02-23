@@ -17,6 +17,7 @@ brew "neovim"
 # Apps
 cask "docker"
 cask "google-cloud-sdk"
+cask "gpg-suite-no-mail"
 
 # Fonts
 cask "font-jetbrains-mono"

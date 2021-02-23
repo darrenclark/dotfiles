@@ -221,6 +221,12 @@
         "options": {
           "full_name": "google-cloud-sdk"
         }
+      },
+      "gpg-suite-no-mail": {
+        "version": "2020.2",
+        "options": {
+          "full_name": "gpg-suite-no-mail"
+        }
       }
     },
     "mas": {
