@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 mkdir -v -p "$HOME/.config"
 
 for dir in .config/*; do
-  ln -v -s "$PWD/$dir" "$HOME/$dir"
+  ln -h -v -s "$PWD/$dir" "$HOME/$dir" || true
 done
 
 for file in .zshenv .iterm2_shell_integration.zsh; do
-  ln -v -s "$PWD/$file" "$HOME/$file"
+  ln -h -v -s "$PWD/$file" "$HOME/$file" || true
 done
