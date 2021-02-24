@@ -41,6 +41,9 @@ nnoremap <CR> :nohlsearch<CR>/<BS><CR>
 " Persistent undo
 set undofile
 
+" Live substitution
+set inccommand=split
+
 """""""
 " Colors
 """""""
@@ -63,6 +66,9 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_settingsPath = '/Users/dclark/.config/nvim/settings.json'
 let g:LanguageClient_loggingFile = expand('/tmp/nvim-LanguageClient.log')
 
+" Java
+autocmd Filetype java setlocal ts=2 sw=2 expandtab
+
 " Ruby
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
@@ -74,11 +80,16 @@ au BufRead,BufNewFile *.ejson set filetype=ejson
 autocmd Filetype ejson setlocal ts=2 sw=2 expandtab
 
 " Elixir
+au BufRead,BufNewFile *.leex set filetype=eelixir
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
 autocmd Filetype eelixir setlocal ts=2 sw=2 expandtab
 
 " YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" JSON
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " HTML
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
@@ -92,9 +103,12 @@ autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 " Python
 autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
+" Kotlin
+autocmd FileType kotlin setlocal ts=2 sts=2 sw=2 expandtab
+
 " Go
 " Run gofmt on save
-autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+" autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
 
 """""""
@@ -137,6 +151,34 @@ nnoremap <C-P> :call ExRunMixTest()<CR>
 nnoremap <C-N> :TestLast<CR>
 " Flip between source & test files
 nnoremap <C-A> :A<CR>
+
+""" Coc.nvim recommendations
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Format code
+command! -nargs=0 Format :call CocAction('format')
+
+" Organize imports
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+"""
+
 
 """""""
 " Auto reload
@@ -245,9 +287,18 @@ endfunction
 """"""
 
 let g:projectionist_heuristics = {
+      \   "apps/*/mix.exs": {
+      \     "apps/*.ex": {"alternate": "apps/{}_test.exs"},
+      \     "apps/*_test.exs": {"alternate": "apps/{}.ex"}
+      \   },
       \   "mix.exs": {
       \     "lib/*.ex": {"alternate": "test/{}_test.exs"},
+      \     "lib/*.html.leex": {"type": "leex", "related": "lib/{}.ex", "alternate": "lib/{}.ex"},
       \     "test/*_test.exs": {"alternate": "lib/{}.ex"}
+      \   },
+      \   "gradlew": {
+      \     "src/main/*.kt": {"alternate": "src/test/{dirname}/Test{basename}.kt"},
+      \     "src/test/**/Test*.kt": {"alternate": "src/main/{}.kt"}
       \   }
       \ }
 
