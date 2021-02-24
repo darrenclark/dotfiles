@@ -1,18 +1,6 @@
 #!/bin/bash
 
-base="master"
-
-git rev-parse origin/develop 1>/dev/null 2>/dev/null
-if [ "$?" = "0" ]; then
-	base="develop"
-fi
-
-if [ -n "$1" ]; then
-	base="$1"
-fi
-
 branch_name="$(git rev-parse --abbrev-ref HEAD)"
-head="$branch_name"
 
 git rev-parse --abbrev-ref --symbolic-full-name @{u} 1>/dev/null 2>/dev/null
 if [ $? -ne 0 ]; then
@@ -21,7 +9,7 @@ if [ $? -ne 0 ]; then
 	read should_push
 
 	if [ "$should_push" = "y" ]; then
-		git push -u origin "$head"
+		git push -u origin "$branch_name"
 		if [ $? -ne 0 ]; then
 			exit 1
 		fi
@@ -30,7 +18,4 @@ if [ $? -ne 0 ]; then
 	fi
 fi
 
-
-echo $base..$head
-hub compare "$base..$head"
-
+gh pr create --web
