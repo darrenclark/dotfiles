@@ -156,7 +156,8 @@ autocmd FileChangedShellPost *
 " FZF / Rg
 """""""
 
-set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'down': '40%' }
 
 " Ripgrep
 command! -bang -nargs=* Rg
