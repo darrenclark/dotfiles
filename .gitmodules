@@ -34,3 +34,9 @@
 [submodule ".asdf"]
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf.git
+[submodule ".config/nvim/pack/my-plugins/start/coc.nvim"]
+	path = .config/nvim/pack/my-plugins/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule ".elixir-ls"]
+	path = .elixir-ls
+	url = https://github.com/elixir-lsp/elixir-ls.git

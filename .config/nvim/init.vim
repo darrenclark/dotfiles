@@ -152,7 +152,9 @@ nnoremap <C-N> :TestLast<CR>
 " Flip between source & test files
 nnoremap <C-A> :A<CR>
 
-""" Coc.nvim recommendations
+""" Coc.nvim
+
+let g:coc_global_extensions = ['coc-elixir', 'coc-tailwindcss']
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
