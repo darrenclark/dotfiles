@@ -3,16 +3,21 @@ tap "homebrew/cask-fonts"
 
 # Libraries
 brew "openssl"
+brew "wxmac"
 
 # Binaries
+brew "autoconf"
 brew "awscli"
 brew "aws-iam-authenticator"
+brew "coreutils"
 brew "fzf"
+brew "gawk"
 brew "git"
 brew "kubectl"
 brew "kubectx"
 brew "kube-ps1"
 brew "neovim"
+brew "ripgrep"
 
 # Apps
 cask "docker"
