@@ -41,3 +41,5 @@
 
 [includeIf "gitdir:/Users/dclark/"]
 	path = work.inc
+[init]
+	defaultBranch = master
