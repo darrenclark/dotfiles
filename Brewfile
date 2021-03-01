@@ -6,6 +6,7 @@ brew "openssl"
 brew "wxmac"
 
 # Binaries
+cask "1password-cli"
 brew "autoconf"
 brew "awscli"
 brew "aws-iam-authenticator"
@@ -14,16 +15,19 @@ brew "fzf"
 brew "gawk"
 brew "gh"
 brew "git"
+brew "jq"
 brew "kubectl"
 brew "kubectx"
 brew "kube-ps1"
 brew "neovim"
 brew "ripgrep"
+brew "watch"
 
 # Apps
 cask "docker"
 cask "google-cloud-sdk"
 cask "gpg-suite-no-mail"
+cask "zoom"
 
 # Fonts
 cask "font-jetbrains-mono"
