@@ -50,6 +50,7 @@ plugins=(git asdf)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/share/dotnet:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=$HOME/.istioctl/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -236,3 +237,6 @@ export ITERM2_SQUELCH_MARK=1
 source ~/.iterm2_shell_integration.zsh
 
 #export PROMPT="${PROMPT:0:1}%{$(iterm2_prompt_mark)%}${PROMPT:1}"
+
+# Load machine-specific config (if present)
+[ -f ~/.local.zsh ] && source ~/.local.zsh
