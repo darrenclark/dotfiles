@@ -1,0 +1,35 @@
+#!/bin/sh
+
+function print_usage {
+  echo "Usage:"
+  echo ""
+  echo "  $0 folders/ to/ watch/ -- <command to run>"
+  echo ""
+}
+
+function clear_scroll_back {
+  printf '\e]50;ClearScrollback\a'
+}
+
+paths=()
+
+while [ ! -z $1 ] && [ $1 != "--" ]; do
+  paths+=("$1")
+  shift
+done
+
+if [ -z $1 ] || [ $1 != "--" ]; then
+  print_usage
+  exit 1
+fi
+
+shift
+cmd="$@"
+
+$cmd
+
+fswatch -0 -e '.*.sw.' "${paths[@]}" | while read -d "" event
+do
+  clear_scroll_back
+  $cmd
+done
