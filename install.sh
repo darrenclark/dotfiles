@@ -21,3 +21,8 @@ mkdir -v -p "$HOME/bin"
 for file in bin/*; do
   ln -h -v -s "$PWD/$file" "$HOME/$file" || true
 done
+
+if [[ ! -z "${REMOTE_CONTAINERS:-}" ]] || [[ ! -z "${CODESPACES:-}" ]]; then
+  echo "Running in devcontainer, removing default ZSH config..."
+  rm -v ~/.zshrc ~/.zcompdump
+fi
