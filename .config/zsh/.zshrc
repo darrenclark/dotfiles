@@ -207,6 +207,20 @@ function ks () {
 	[[ ! -z "$pod" ]] && kubectl exec -ti "$pod" -- bash
 }
 
+function kiex () {
+	pod="$(kubectl get pods | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
+	if [[ ! -z "$pod" ]]; then
+		executable=$(kubectl exec "$pod" -ti -- bash -c "ls bin/ | cat" | tr -d '\r' | grep -vE '\.bat$')
+		if [[ ! -z "$executable" ]]; then
+			kubectl exec -ti "$pod" -- "bin/$executable" remote
+		else
+			echo >&2 "Elixir release executable not found in bin/, exiting"; exit 1;
+		fi
+	else
+		exit 1;
+	fi
+}
+
 # let vim see Ctrl-Q
 stty -ixon
 
