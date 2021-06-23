@@ -214,10 +214,10 @@ function kiex () {
 		if [[ ! -z "$executable" ]]; then
 			kubectl exec -ti "$pod" -- "bin/$executable" remote
 		else
-			echo >&2 "Elixir release executable not found in bin/, exiting"; exit 1;
+			echo >&2 "Elixir release executable not found in bin/, exiting"; return 1;
 		fi
 	else
-		exit 1;
+		return 1;
 	fi
 }
 
