@@ -17,6 +17,9 @@ set completeopt-=preview
 " better backspace
 set backspace=indent,eol,start
 
+" higlight trailing whitespace + tabs
+set list listchars=trail:•,tab:--❭
+
 " Relative line numbers when focused, otherwise regular line numbers
 set number
 set relativenumber
