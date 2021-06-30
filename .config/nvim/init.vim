@@ -154,7 +154,7 @@ nnoremap <C-A> :A<CR>
 
 """ Coc.nvim
 
-let g:coc_global_extensions = ['coc-elixir', 'coc-tailwindcss']
+let g:coc_global_extensions = ['coc-elixir', 'coc-tailwindcss', 'coc-yank']
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -179,8 +179,8 @@ command! -nargs=0 Format :call CocAction('format')
 " Organize imports
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-"""
-
+" Yank list
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 """""""
 " Auto reload

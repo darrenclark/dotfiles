@@ -1,4 +1,7 @@
 {
   "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
-  "elixirLS.dialyzerEnabled": false
+  "elixirLS.dialyzerEnabled": false,
+  "yank.highlight.enable": false,
+  "yank.enableCompletion": false,
+  "yank.list.maxsize": 20
 }
