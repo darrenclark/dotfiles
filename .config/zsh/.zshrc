@@ -235,8 +235,12 @@ alias ec='e $(guu)'
 
 alias vless='nvim -u /usr/local/Cellar/neovim/0.3.4/share/nvim/runtime/macros/less.vim'
 
-p() { cd "$HOME"/Projects/"$1"; }
-_p() { pushd "$HOME"/Projects >/dev/null; COMPREPLY=("$2"*/); popd >/dev/null; }
+# casing different between linux / mac, do mac second because case insensitive file system
+[ -d "$HOME"/projects ] && export PROJECTS_DIR="$HOME"/projects
+[ -d "$HOME"/Projects ] && export PROJECTS_DIR="$HOME"/Projects
+
+p() { cd "$PROJECTS_DIR/$1"; }
+_p() { pushd "$PROJECTS_DIR" >/dev/null; COMPREPLY=("$2"*/); popd >/dev/null; }
 complete -F _p p
 
 alias fv='vim -O $(fzf -m --preview "bat --style=numbers,changes --color always {}")'
