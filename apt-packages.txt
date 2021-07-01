@@ -1,0 +1,7 @@
+# Run apt.sh to install
+
+git
+jq
+neovim
+tree
+zsh
