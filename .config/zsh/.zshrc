@@ -225,6 +225,29 @@ function kiex () {
 	fi
 }
 
+function keach () {
+	if [[ "$#" -lt 2 ]]; then
+		echo "Expected kubecontext pattern & command"; return 1;
+	fi
+
+	if [[ "$(kubectx | grep "$1" | grep -c prod)" -gt 0 ]]; then
+		echo "WARNING, PATTERN MATCHED FOLLOWING CLUSTERS:"
+		kubectx | grep "$1" | grep prod
+		echo "TO CONTINUE, TYPE 'production':"
+		read -r response
+
+		[[ "$response" != "production" ]] && return 1;
+	fi
+
+	pattern="$1"
+	shift
+
+	for context in $(kubectx | grep "$pattern"); do
+		echo "# kubectl --context $context" "${@}"
+		kubectl --context "$context" "${@}"
+	done
+}
+
 # let vim see Ctrl-Q
 stty -ixon
 
