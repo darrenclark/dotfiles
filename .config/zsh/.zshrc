@@ -189,8 +189,7 @@ alias docker-delete-all-containers='docker rm $(docker ps -a -q)'
 alias docker-delete-all-images='docker rmi $(docker images -q)'
 
 # Kubertnetes prompt
-kube_ps1_path=$(which kube_ps1)
-if [ -x "$kube_ps1_path" ]; then
+if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]; then
 	source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 	function k_set_prod_background() {
 		if [[ "$KUBE_PS1_CONTEXT" == *prod* ]]; then
