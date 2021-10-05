@@ -40,3 +40,6 @@
 [submodule ".elixir-ls"]
 	path = .elixir-ls
 	url = https://github.com/elixir-lsp/elixir-ls.git
+[submodule ".config/nvim/pack/my-plugins/start/vim-gh-line"]
+	path = .config/nvim/pack/my-plugins/start/vim-gh-line
+	url = https://github.com/ruanyl/vim-gh-line

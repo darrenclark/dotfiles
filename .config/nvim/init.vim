@@ -308,3 +308,7 @@ let g:projectionist_heuristics = {
       \   }
       \ }
 
+" Open in Github (ruanyl/vim-gh-line)
+
+" Use commit hash instead of branch name
+let g:gh_use_canonical = 1
