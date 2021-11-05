@@ -193,9 +193,9 @@ if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]; then
 	source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 	function k_set_prod_background() {
 		if [[ "$KUBE_PS1_CONTEXT" == *prod* ]]; then
-			echo -e "\033]50;SetProfile=Prod\a"
+			echo -e "\033]1337;SetColors=bg=500\a"
 		else
-			echo -e "\033]50;SetProfile=\a"
+			echo -e "\033]1337;SetColors=bg=000\a"
 		fi
 	}
 	export PROMPT="${PROMPT:0:113}"' $(kube_ps1)$(k_set_prod_background)'"${PROMPT:113}"
