@@ -84,6 +84,7 @@ autocmd Filetype ejson setlocal ts=2 sw=2 expandtab
 
 " Elixir
 au BufRead,BufNewFile *.leex set filetype=eelixir
+au BufRead,BufNewFile *.heex set filetype=eelixir
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
 autocmd Filetype eelixir setlocal ts=2 sw=2 expandtab
 
@@ -112,6 +113,10 @@ autocmd FileType kotlin setlocal ts=2 sts=2 sw=2 expandtab
 " Go
 " Run gofmt on save
 " autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+" Markdown
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 
 """""""
