@@ -88,6 +88,10 @@ export EDITOR='nvim'
 
 export PATH="$HOME/go/bin:$HOME/.rbenv/bin:$HOME/bin:$PATH"
 
+# Load homebrew (if present)
+
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 alias g=git
 alias b='bundle exec'
 alias e=$EDITOR
