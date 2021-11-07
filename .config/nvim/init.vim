@@ -210,6 +210,7 @@ autocmd FileChangedShellPost *
 
 set rtp+=/usr/local/opt/fzf
 set rtp+=/usr/share/doc/fzf/examples
+set rtp+=/opt/homebrew/opt/fzf
 let g:fzf_layout = { 'down': '40%' }
 
 " Ripgrep
