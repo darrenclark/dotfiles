@@ -31,6 +31,8 @@ brew "watch"
 cask "docker"
 cask "google-cloud-sdk"
 cask "gpg-suite-no-mail"
+cask "iterm2"
+cask "rectangle"
 cask "zoom"
 
 # Fonts
