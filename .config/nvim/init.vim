@@ -222,6 +222,22 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 """""""
+" Git Co-authored-by (w/ FZF)
+"""""""
+
+command! -nargs=0 GitCoAuthoredBy
+  \ call fzf#run({
+  \   'source': 'git log --pretty="Co-authored-by: %an <%ae>" -n 200 | sort -u',
+  \   'sink': 'InsertGitCoAuthoredBy'
+  \ })
+
+function! InsertGitCoAuthoredBy(author)
+  exe "normal! a" . substitute(a:author, "\\", "", "g") . "\<Esc>"
+endfunction
+
+command! -nargs=1 InsertGitCoAuthoredBy call InsertGitCoAuthoredBy(<q-args>)
+
+"""""""
 " Run test under cursor
 """""""
 
