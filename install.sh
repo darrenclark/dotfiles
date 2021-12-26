@@ -24,3 +24,7 @@ mkdir -v -p "$HOME/bin"
 for file in bin/*; do
   ln -n -v -s "$PWD/$file" "$HOME/$file" || true
 done
+
+if [[ ! -z $GITHUB_CODESPACE_TOKEN ]]; then
+  ./apt.sh
+fi
