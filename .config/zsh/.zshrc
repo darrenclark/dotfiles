@@ -210,16 +210,16 @@ alias kctx=kubectx
 alias kns=kubens
 
 function ks () {
-	pod="$(kubectl get pods | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
-	[[ ! -z "$pod" ]] && kubectl exec -ti "$pod" -- bash
+	pod="$(kubectl get pods "$@" | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
+	[[ ! -z "$pod" ]] && kubectl exec "$@" -ti "$pod" -- bash
 }
 
 function kiex () {
-	pod="$(kubectl get pods | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
+	pod="$(kubectl get pods "$@" | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
 	if [[ ! -z "$pod" ]]; then
-		executable=$(kubectl exec "$pod" -ti -- bash -c "ls bin/ | cat" | tr -d '\r' | grep -vE '\.bat$')
+		executable=$(kubectl exec "$@" "$pod" -ti -- bash -c "ls bin/ | cat" | tr -d '\r' | grep -vE '\.bat$')
 		if [[ ! -z "$executable" ]]; then
-			kubectl exec -ti "$pod" -- "bin/$executable" remote
+			kubectl exec "$@" -ti "$pod" -- "bin/$executable" remote
 		else
 			echo >&2 "Elixir release executable not found in bin/, exiting"; return 1;
 		fi
