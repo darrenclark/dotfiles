@@ -162,7 +162,7 @@ nnoremap <C-A> :A<CR>
 
 """ Coc.nvim
 
-let g:coc_global_extensions = ['coc-elixir', 'coc-tailwindcss', 'coc-yank']
+let g:coc_global_extensions = ['coc-elixir', 'coc-yank']
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
