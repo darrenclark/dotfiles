@@ -23,13 +23,13 @@ Linux:
 
 ```sh
 # Erlang
-asdf plugin install erlang
+asdf plugin add erlang
 export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=/usr/local/opt/openssl@1.1"
 export KERL_BUILD_DOCS=yes
 asdf install erlang <version>
 
 # Elixir
-asdf plugin install elixir
+asdf plugin add elixir
 asdf install elixir <version>
 ```
 
