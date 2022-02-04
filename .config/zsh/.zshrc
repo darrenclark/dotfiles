@@ -259,6 +259,7 @@ export GOPATH="$HOME/go:$(go env GOPATH)"
 
 alias guu='git status --porcelain | grep "^UU " | sed "s/...//"'
 alias ec='e $(guu)'
+alias em='e $(git status --porcelain | grep "^ M " | sed 's/...//')'
 
 alias vless='nvim -u /usr/local/Cellar/neovim/0.3.4/share/nvim/runtime/macros/less.vim'
 
