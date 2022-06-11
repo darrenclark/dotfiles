@@ -42,3 +42,4 @@ cask "font-jetbrains-mono"
 mas "1Password", id: 1333542190
 mas "Bear", id: 1091189122
 mas "Slack", id: 803453959
+mas "Paprika Recipe Manager 3", id: 1303222628
