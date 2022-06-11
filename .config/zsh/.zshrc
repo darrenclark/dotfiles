@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
-export PATH="$HOME/go/bin:$HOME/.rbenv/bin:$HOME/bin:$PATH"
+export PATH=":$HOME/.rbenv/bin:$HOME/bin:$PATH"
 
 # Load homebrew (if present)
 
@@ -174,6 +174,10 @@ function fix_git_prompt () {
 
 #export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 #alias gb=$GOPATH/bin/gb
+#
+
+# Go from official download
+export PATH="/usr/local/go/bin:$PATH"
 
 
 export PATH=$PATH:$HOME/.cargo/bin
@@ -255,7 +259,7 @@ function keach () {
 stty -ixon
 
 # patch GOPATH, perhaps I shouldn't have installed it via asdf..
-export GOPATH="$HOME/go:$(go env GOPATH)"
+#export GOPATH="$HOME/go:$(go env GOPATH)"
 
 alias guu='git status --porcelain | grep "^UU " | sed "s/...//"'
 alias ec='e $(guu)'
