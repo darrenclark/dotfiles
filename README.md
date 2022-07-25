@@ -34,6 +34,12 @@ System Preferences -> Keyboard -> Modifier Keys
 
 Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import `./RectangleConfig.json`
 
+#### N. Login to github:
+
+```
+gh auth login
+```
+
 
 ### Linux
 
