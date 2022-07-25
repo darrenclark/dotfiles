@@ -14,9 +14,15 @@
 
 ./brew.sh
 ./post-packages.sh
+
+./defaults.sh
 ```
 
-#### 2. Configure Rectangle
+#### N. Map Caps Lock to Control
+
+System Preferences -> Keyboard -> Modifier Keys
+
+#### N. Configure Rectangle
 
 Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import `./RectangleConfig.json`
 
