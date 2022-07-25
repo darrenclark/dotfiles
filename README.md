@@ -2,16 +2,26 @@
 
 ## Manual steps
 
-Mac:
+### Mac
+
+#### 1. Run the shell commands:
 
 ```sh
 ./install.sh
 ./brew_once.sh
+
+# (open a new shell window)
+
 ./brew.sh
 ./post-packages.sh
 ```
 
-Linux:
+#### 2. Configure Rectangle
+
+Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import `./RectangleConfig.json`
+
+
+### Linux
 
 ```sh
 ./install.sh
