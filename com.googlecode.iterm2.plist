@@ -801,6 +801,8 @@
 				<dict>
 					<key>action</key>
 					<string>iTermHyperlinkTrigger</string>
+					<key>disabled</key>
+					<true/>
 					<key>parameter</key>
 					<string>https://jira.thescore.com/browse/\(matches[0])</string>
 					<key>regex</key>
@@ -809,6 +811,8 @@
 				<dict>
 					<key>action</key>
 					<string>iTermHyperlinkTrigger</string>
+					<key>disabled</key>
+					<true/>
 					<key>parameter</key>
 					<string>\(user.githubHttp)/pull/\(matches[1])</string>
 					<key>regex</key>
