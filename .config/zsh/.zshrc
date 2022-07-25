@@ -197,8 +197,10 @@ alias docker-delete-all-containers='docker rm $(docker ps -a -q)'
 alias docker-delete-all-images='docker rmi $(docker images -q)'
 
 # Kubertnetes prompt
-if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]; then
-	source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ] || [ -f "/opt/homebrew/share/kube-ps1.sh" ]; then
+	[ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ] && source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+	[ -f "/opt/homebrew/share/kube-ps1.sh" ] && source "/opt/homebrew/share/kube-ps1.sh"
+
 	function k_set_prod_background() {
 		if [[ "$KUBE_PS1_CONTEXT" == *prod* ]]; then
 			echo -e "\033]1337;SetColors=bg=500\a"
