@@ -22,6 +22,14 @@
 
 System Preferences -> Keyboard -> Modifier Keys
 
+#### N. Configure iTerm
+
+1. iTerm -> Preferences -> General -> Preferences
+
+2. Load from custom folder or URL: `/Users/dclark/Projects/dotfiles`
+
+3. Restart iTerm
+
 #### N. Configure Rectangle
 
 Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import `./RectangleConfig.json`
