@@ -28,6 +28,7 @@ brew "tree"
 brew "watch"
 
 # Apps
+cask "google-chrome"
 cask "docker"
 cask "google-cloud-sdk"
 cask "gpg-suite-no-mail"

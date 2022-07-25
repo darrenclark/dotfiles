@@ -852,6 +852,12 @@
         "options": {
           "full_name": "rectangle"
         }
+      },
+      "google-chrome": {
+        "version": "103.0.5060.134",
+        "options": {
+          "full_name": "google-chrome"
+        }
       }
     },
     "mas": {
