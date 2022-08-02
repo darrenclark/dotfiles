@@ -180,7 +180,7 @@ function fix_git_prompt () {
 export PATH="/usr/local/go/bin:$PATH"
 
 
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$HOME/.cargo/bin:$PATH
 
 # iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
