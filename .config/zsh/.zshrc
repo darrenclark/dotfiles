@@ -185,7 +185,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 # iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
 export ERL_LIBS="$HOME/.config/iex"
-export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
 
 export GPG_TTY=$(tty)
 

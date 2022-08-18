@@ -63,6 +63,28 @@ asdf plugin add elixir
 asdf install elixir <version>
 ```
 
+### Elixir Language Server
+
+Setup NodeJS:
+
+```
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf global nodejs <version>
+```
+
+Build Elixir LS:
+
+```
+cd ~/.elixir-ls
+# set global erlang and elixir versions to earliest release I'll be using
+asdf global erlang ...
+asdf global elixir ...
+
+mix deps.get
+mix compile
+mix elixir_ls.release
+```
+
 ## TODO
 
 - Default git hooks to:
