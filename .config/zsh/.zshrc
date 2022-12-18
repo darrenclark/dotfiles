@@ -53,6 +53,9 @@ export PATH="/usr/local/bin:/usr/local/share/dotnet:/usr/bin:/bin:/usr/sbin:/sbi
 export PATH=$HOME/.istioctl/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Load homebrew (if present)
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -87,10 +90,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 
 export PATH=":$HOME/.rbenv/bin:$HOME/bin:$PATH"
-
-# Load homebrew (if present)
-
-[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 alias g=git
 alias b='bundle exec'
