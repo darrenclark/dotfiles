@@ -118,6 +118,10 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 " Markdown
 autocmd BufRead,BufNewFile *.md setlocal spell
 
+" Jenkinsfile
+au BufRead,BufNewFile Jenkinsfile set filetype=groovy
+au BufRead,BufNewFile Jenkinsfile setlocal ts=4 sts=4 sw=4 expandtab
+
 
 """""""
 " Keybindings
