@@ -185,8 +185,6 @@ export PATH=$HOME/.cargo/bin:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export ERL_LIBS="$HOME/.config/iex"
 
-source ~/.config/zsh/build_options.sh
-
 export GPG_TTY=$(tty)
 
 
@@ -240,9 +238,9 @@ function keach () {
 	fi
 
 	if [[ "$(kubectx | grep "$1" | grep -c prod)" -gt 0 ]]; then
-		echo "WARNING, PATTERN MATCHED FOLLOWING CLUSTERS:"
+		echo "WARNING, PATTERN MATCHED FOLLOWING CLUSTERS:" 1>&2
 		kubectx | grep "$1" | grep prod
-		echo "TO CONTINUE, TYPE 'production':"
+		echo "TO CONTINUE, TYPE 'production':" 1>&2
 		read -r response
 
 		[[ "$response" != "production" ]] && return 1;
@@ -252,7 +250,7 @@ function keach () {
 	shift
 
 	for context in $(kubectx | grep "$pattern"); do
-		echo "# kubectl --context $context" "${@}"
+		echo "# kubectl --context $context" "${@}" 1>&2
 		kubectl --context "$context" "${@}"
 	done
 }
@@ -288,7 +286,7 @@ fi
 iterm2_print_user_vars() {
   #iterm2_set_user_var githubHttp $(git remote get-url origin | sed 's/git@/https:\/\//; s/github.com:/github.com\//')
 }
-export ITERM2_SQUELCH_MARK=1
+#export ITERM2_SQUELCH_MARK=1
 source ~/.iterm2_shell_integration.zsh
 
 #export PROMPT="${PROMPT:0:1}%{$(iterm2_prompt_mark)%}${PROMPT:1}"
