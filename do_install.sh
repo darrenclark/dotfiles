@@ -125,6 +125,7 @@ function macos_defaults() {
 function install_asdf_plugins() {
   print_step "Installing asdf plugins..."
 
+  source ~/.asdf/asdf.sh
   source .config/zsh/build_options.sh
 
   asdf plugin add elixir || asdf plugin update elixir
