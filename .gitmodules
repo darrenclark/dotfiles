@@ -1,45 +1,9 @@
-[submodule ".config/nvim/pack/my-plugins/start/fzf.vim"]
-	path = .config/nvim/pack/my-plugins/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-[submodule ".config/nvim/pack/my-plugins/start/kotlin-vim"]
-	path = .config/nvim/pack/my-plugins/start/kotlin-vim
-	url = https://github.com/udalov/kotlin-vim
-[submodule ".config/nvim/pack/my-plugins/start/nerdtree"]
-	path = .config/nvim/pack/my-plugins/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree
-[submodule ".config/nvim/pack/my-plugins/start/vim-buftabline"]
-	path = .config/nvim/pack/my-plugins/start/vim-buftabline
-	url = https://github.com/ap/vim-buftabline
-[submodule ".config/nvim/pack/my-plugins/start/vim-commentary"]
-	path = .config/nvim/pack/my-plugins/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
-[submodule ".config/nvim/pack/my-plugins/start/vim-elixir"]
-	path = .config/nvim/pack/my-plugins/start/vim-elixir
-	url = https://github.com/elixir-editors/vim-elixir
-[submodule ".config/nvim/pack/my-plugins/start/vim-fugitive"]
-	path = .config/nvim/pack/my-plugins/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule ".config/nvim/pack/my-plugins/start/vim-graphql"]
-	path = .config/nvim/pack/my-plugins/start/vim-graphql
-	url = https://github.com/jparise/vim-graphql
-[submodule ".config/nvim/pack/my-plugins/start/vim-projectionist"]
-	path = .config/nvim/pack/my-plugins/start/vim-projectionist
-	url = https://github.com/tpope/vim-projectionist
-[submodule ".config/nvim/pack/my-plugins/start/vim-test"]
-	path = .config/nvim/pack/my-plugins/start/vim-test
-	url = https://github.com/janko/vim-test
 [submodule ".config/zsh/oh-my-zsh"]
 	path = .config/zsh/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh
 [submodule ".asdf"]
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf.git
-[submodule ".config/nvim/pack/my-plugins/start/coc.nvim"]
-	path = .config/nvim/pack/my-plugins/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
 [submodule ".elixir-ls"]
 	path = .elixir-ls
 	url = https://github.com/elixir-lsp/elixir-ls.git
-[submodule ".config/nvim/pack/my-plugins/start/vim-gh-line"]
-	path = .config/nvim/pack/my-plugins/start/vim-gh-line
-	url = https://github.com/ruanyl/vim-gh-line
