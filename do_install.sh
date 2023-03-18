@@ -86,12 +86,17 @@ function install_brew_if_needed() {
 }
 
 function brew_bundle_install() {
-  brew bundle install
+  # This command fails when Google Chrome updates itself (I think), and brew can't upgrade it
+  brew bundle install || true
 }
 
 function install_apt_packages() {
   sudo apt update -y
   grep -vE '^#' apt-packages.txt | xargs sudo apt install -y
+}
+
+function macos_defaults() {
+  ./defaults.sh
 }
 
 # ---
@@ -100,6 +105,7 @@ detect_os
 init_submodules
 copy_configs
 copy_shell_scripts
+is_mac && macos_defaults
 is_brew && install_brew_if_needed
 is_brew && brew_bundle_install
 is_apt && install_apt_packages
