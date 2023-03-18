@@ -5,4 +5,5 @@ git
 jq
 neovim
 tree
+unzip
 zsh
