@@ -110,6 +110,9 @@ autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " Kotlin
 autocmd FileType kotlin setlocal ts=2 sts=2 sw=2 expandtab
 
+" Shell
+autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+
 " Go
 " Run gofmt on save
 " autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
