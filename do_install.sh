@@ -43,8 +43,9 @@ function detect_os() {
 
 function is_mac() { [[ $OS = Darwin ]] }
 function is_linux() { [[ $OS = Linux ]] }
+function is_github_codespaces { [[ ! -z "${GITHUB_CODESPACE_TOKEN-}" ]] }
 
-function is_arm64() { [[ $(uname -m) = arm64 ]] }
+function is_arm64() { [[ $(uname -m) = arm64 ]] || [[ $(uname -m) = aarch64 ]] }
 
 function is_brew() { [[ $PACKAGE_MANAGER = brew ]] }
 function is_apt() { [[ $PACKAGE_MANAGER = apt ]] }
@@ -121,6 +122,76 @@ function macos_defaults() {
   ./defaults.sh
 }
 
+function install_asdf_plugins() {
+  print_step "Installing asdf plugins..."
+
+  source .config/zsh/build_options.sh
+
+  asdf plugin add elixir || asdf plugin update elixir
+  asdf plugin add erlang || asdf plugin update erlang
+  asdf plugin add nodejs || asdf plugin update nodejs
+  asdf plugin add python || asdf plugin update python
+
+  # uses .tool-versions in dotfiles repo
+  asdf install
+}
+
+function set_asdf_global_versions() {
+  print_step "Setting global asdf tool versions..."
+
+  # Don't overwrite any global versions set on this computer
+  if [[ ! -f ~/.tool-versions ]]; then
+    echo "cp ./.tool-versions ~/.tool-versions"
+    cp ./.tool-versions ~/.tool-versions
+  else
+    echo "Skipping, already set"
+  fi
+}
+
+function install_go() {
+  print_step "Installing go..."
+
+  local go_version=go1.20.2
+  local download_path=/tmp/go.tar.gz
+
+  if [[ -f /usr/local/go/VERSION ]] && [[ $(cat /usr/local/go/VERSION) = $go_version ]]; then
+    echo "Skipping, already installed."
+    return 0
+  fi
+
+  if is_mac && is_arm64 ; then
+    curl -L -o $download_path "https://go.dev/dl/${go_version}.darwin-arm64.tar.gz"
+  elif is_mac && ! is_arm64 ; then
+    curl -L -O $download_path "https://go.dev/dl/${go_version}.darwin-amd64.tar.gz"
+  elif is_linux && is_arm64 ; then
+    curl -L -O $download_path "https://go.dev/dl/${go_version}.linux-arm64.tar.gz"
+  elif is_linux && ! is_arm64 ; then
+    curl -L -O $download_path "https://go.dev/dl/${go_version}.linux-amd64.tar.gz"
+  else
+    echo "Skipping, I don't know how to install go on $OS / $DISTRO"
+    return 0
+  fi
+
+  if is_mac ; then
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $download_path
+  else
+    rm -rf /usr/local/go && tar -C /usr/local -xzf $download_path
+  fi
+
+  rm $download_path
+}
+
+function install_rust() {
+  print_step "Installing Rust..."
+
+  if ! command -v rustup ; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  fi
+
+  rustup self update
+  rustup update
+}
+
 # ---
 
 detect_os
@@ -131,5 +202,10 @@ is_mac && macos_defaults
 is_brew && install_brew_if_needed
 is_brew && brew_bundle_install
 is_apt && install_apt_packages
+! is_github_codespaces && install_asdf_plugins
+! is_github_codespaces && set_asdf_global_versions
+! is_github_codespaces && install_go
+! is_github_codespaces && install_rust
+
 
 print_step "Done!"

@@ -112,6 +112,7 @@ autocmd FileType kotlin setlocal ts=2 sts=2 sw=2 expandtab
 
 " Shell
 autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType zsh setlocal ts=2 sts=2 sw=2 expandtab
 
 " Go
 " Run gofmt on save
