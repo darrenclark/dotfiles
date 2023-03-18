@@ -2,7 +2,15 @@
 
 set -euo pipefail
 
+function print_step() {
+  echo ""
+  echo "$(tput bold)$1$(tput sgr0)"
+  echo ""
+}
+
 function detect_os() {
+  print_step "Detecting OS and package manager..."
+
   export OS=$(uname)
 
   if [[ $OS = Linux ]]; then
@@ -42,10 +50,14 @@ function is_brew() { [[ $PACKAGE_MANAGER = brew ]] }
 function is_apt() { [[ $PACKAGE_MANAGER = apt ]] }
 
 function init_submodules() {
+  print_step "Initializing submodules..."
+
   git submodule update --init --recursive
 }
 
 function copy_configs() {
+  print_step "Linking configuration files..."
+
   # Copy configs
   mkdir -v -p "$HOME/.config"
 
@@ -59,6 +71,8 @@ function copy_configs() {
 }
 
 function copy_shell_scripts() {
+  print_step "Linking bin/ scripts..."
+
   # Copy shell scripts
   mkdir -v -p "$HOME/bin"
 
@@ -68,6 +82,8 @@ function copy_shell_scripts() {
 }
 
 function install_brew_if_needed() {
+  print_step "Installing brew..."
+
   local brew_prefix=""
   if is_mac && is_arm64 ; then
     brew_prefix=/opt/homebrew
@@ -86,16 +102,22 @@ function install_brew_if_needed() {
 }
 
 function brew_bundle_install() {
+  print_step "Installing packages from brew..."
+
   # This command fails when Google Chrome updates itself (I think), and brew can't upgrade it
   brew bundle install || true
 }
 
 function install_apt_packages() {
+  print_step "Installing packages from apt..."
+
   sudo apt update -y
   grep -vE '^#' apt-packages.txt | xargs sudo apt install -y
 }
 
 function macos_defaults() {
+  print_step "Setting macOS defaults..."
+
   ./defaults.sh
 }
 
@@ -109,3 +131,5 @@ is_mac && macos_defaults
 is_brew && install_brew_if_needed
 is_brew && brew_bundle_install
 is_apt && install_apt_packages
+
+print_step "Done!"
