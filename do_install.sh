@@ -165,21 +165,17 @@ function install_go() {
   if is_mac && is_arm64 ; then
     curl -L -o $download_path "https://go.dev/dl/${go_version}.darwin-arm64.tar.gz"
   elif is_mac && ! is_arm64 ; then
-    curl -L -O $download_path "https://go.dev/dl/${go_version}.darwin-amd64.tar.gz"
+    curl -L -o $download_path "https://go.dev/dl/${go_version}.darwin-amd64.tar.gz"
   elif is_linux && is_arm64 ; then
-    curl -L -O $download_path "https://go.dev/dl/${go_version}.linux-arm64.tar.gz"
+    curl -L -o $download_path "https://go.dev/dl/${go_version}.linux-arm64.tar.gz"
   elif is_linux && ! is_arm64 ; then
-    curl -L -O $download_path "https://go.dev/dl/${go_version}.linux-amd64.tar.gz"
+    curl -L -o $download_path "https://go.dev/dl/${go_version}.linux-amd64.tar.gz"
   else
     echo "Skipping, I don't know how to install go on $OS / $DISTRO"
     return 0
   fi
 
-  if is_mac ; then
-    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $download_path
-  else
-    rm -rf /usr/local/go && tar -C /usr/local -xzf $download_path
-  fi
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $download_path
 
   rm $download_path
 }
@@ -187,9 +183,13 @@ function install_go() {
 function install_rust() {
   print_step "Installing Rust..."
 
+  export PATH=$HOME/.cargo/bin:$PATH
+
   if ! command -v rustup ; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
   fi
+
+  rehash
 
   rustup self update
   rustup update
