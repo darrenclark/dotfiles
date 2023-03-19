@@ -35,4 +35,6 @@ local lazy_config = {
 -- Load plugins from ./plugins/*.lua files
 require("lazy").setup("plugins", lazy_config)
 
-vim.opt.termguicolors = true
+require("config/autocmds")
+require("config/options")
+require("config/keys")
