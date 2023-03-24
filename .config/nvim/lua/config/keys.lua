@@ -24,3 +24,6 @@ map("v", "<C-K>", "<C-C>:bn<CR>", { silent = true })
 map("v", "<C-L>", "<C-C>:bn<CR>", { silent = true })
 map("i", "<C-K>", "<C-C>:bn<CR>", { silent = true })
 map("i", "<C-L>", "<C-C>:bn<CR>", { silent = true })
+
+-- Close buffer
+map("n", "<C-Q>", ":bd<CR>", { silent = true })

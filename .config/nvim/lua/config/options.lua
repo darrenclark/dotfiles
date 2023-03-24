@@ -22,3 +22,9 @@ vim.opt.relativenumber = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Persistent undo
+vim.opt.undofile = true
+
+-- Live substitution
+vim.opt.inccommand = 'split'
