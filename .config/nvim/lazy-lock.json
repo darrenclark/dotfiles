@@ -1,5 +1,6 @@
 {
-  "bluloco.nvim": { "branch": "main", "commit": "29b73b9138032ee86c1299c8afcfc06d1565b3ed" },
+  "bufferline.nvim": { "branch": "main", "commit": "3677aceb9a72630b0613e56516c8f7151b86f95c" },
+  "jellybeans-nvim": { "branch": "main", "commit": "f77b75443adf6461ded30de0243f49771f933d06" },
   "lazy.nvim": { "branch": "main", "commit": "fdb41229ca39cf2795cbf4e6d04a52b73e6225f5" },
   "lush.nvim": { "branch": "main", "commit": "62180850d230e1650fe5543048bb15c4452916d6" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "205184aa0e0f08e8a1249d9bb37b45bae85f01b9" },
