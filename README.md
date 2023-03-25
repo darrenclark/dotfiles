@@ -115,4 +115,4 @@ New:
 - [x] treesitter
   - [ ] more languages
 
-- [x] mini libs (mini.ai, mini.comment, mini surround, etc,)
+- [ ] mini libs (mini.ai, mini.comment, mini surround, etc,)

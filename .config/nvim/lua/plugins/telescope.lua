@@ -3,11 +3,7 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   init = function()
     local rg = function(opts)
-      if opts.args == "" then
-        require('telescope.builtin').live_grep()
-      else
-        require('telescope.builtin').grep_string({search=opts.args, use_regex=true})
-      end
+      require('telescope.builtin').live_grep({default_text=opts.args})
     end
 
     vim.api.nvim_create_user_command('Rg', rg, {nargs = '*'})
@@ -37,6 +33,9 @@ return {
     pickers = {
       find_files = {
         find_command = {"rg", "--ignore", "--hidden", "--files", "-g", "!.git"},
+      },
+      live_grep = {
+        additional_args = {"--hidden", "-g", "!.git"}
       }
     }
   }
