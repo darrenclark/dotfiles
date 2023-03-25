@@ -6,12 +6,15 @@ return {
   opts = {
     highlight = { enable = true },
     ensure_installed = {
+      'c',
       'bash',
+      'help',
       'json',
       'jsonc',
       'lua',
       'markdown',
       'markdown_inline',
+      'vim',
     }
   },
   config = function(_, opts)
