@@ -101,12 +101,16 @@ mix elixir_ls.release
 - [ ] Ctrl A - projectionist
 - [ ] `:Format` (or format on save maybe?)
 - [ ] autoreload externally modified files
-- [ ] Language server setup
-	- [ ] autocomplete with Ctrl-Space (??)
+- [x] Language server setup
+  - [ ] Setup more languages
+  - [ ] DAP
+  - [ ] Code actions (?) - organize imports, etc.
+  - [ ] super tab?
 - [x] Ctrl Space to open files
 - [x] `:Rg`
 - [ ] GitCoAuthoredBy
 
 New:
 
-- [ ] treesitter
+- [x] treesitter
+  - [ ] more languages
