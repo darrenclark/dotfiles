@@ -1,5 +1,7 @@
 vim.opt.mouse = 'a'
 
+vim.opt.guicursor = ''
+
 vim.opt.hidden = true
 
 vim.opt.ruler = true
