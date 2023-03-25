@@ -100,7 +100,7 @@ mix elixir_ls.release
 - [ ] shift-K for documentation
 - [ ] Ctrl A - projectionist
 - [ ] `:Format` (or format on save maybe?)
-- [ ] autoreload externally modified files
+- [x] autoreload externally modified files
 - [x] Language server setup
   - [ ] Setup more languages
   - [ ] DAP
@@ -114,3 +114,5 @@ New:
 
 - [x] treesitter
   - [ ] more languages
+
+- [x] mini libs (mini.ai, mini.comment, mini surround, etc,)
