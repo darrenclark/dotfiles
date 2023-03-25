@@ -8,6 +8,16 @@ return {
       "williamboman/mason-lspconfig.nvim"
     },
     opts = {
+      diagnostics = {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = { spacing = 4, prefix = "" },
+        severity_sort = true,
+      },
+      diagnosticColors = {
+        DiagnosticError = "#990000",
+        DiagnosticWarn = "#cc9900",
+      },
       servers = {
         jsonls = {},
         lua_ls = {
@@ -37,6 +47,22 @@ return {
       setup = {}
     },
     config = function (_, opts)
+
+      -- Diagnostic configuration
+      vim.diagnostic.config(opts.diagnostics)
+      for hl, color in pairs(opts.diagnosticColors) do
+        vim.cmd("highlight " .. hl .. " guifg=" .. color)
+      end
+      local signToHl = {
+        DiagnosticSignError = 'DiagnosticError',
+        DiagnosticSignWarn = 'DiagnosticWarn',
+        DiagnosticSignInfo = 'DiagnosticInfo',
+        DiagnosticSignHint = 'DiagnosticHint',
+      }
+      for sign, hl in pairs(signToHl) do
+        vim.cmd("sign define " .. sign .. " text= numhl=" .. hl)
+      end
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
