@@ -97,7 +97,7 @@ mix elixir_ls.release
 
 - [ ] Indent settings
 - [ ] Ctrl P / N - run tests
-- [ ] shift-K for documentation
+- [x] shift-K for documentation
 - [ ] Ctrl A - projectionist
 - [ ] `:Format` (or format on save maybe?)
 - [x] autoreload externally modified files
