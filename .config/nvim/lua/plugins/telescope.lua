@@ -16,7 +16,15 @@ return {
       end,
       mode = {"n"},
       desc = "Find files"
-    }
+    },
+    {
+      "<C-/>",
+      function()
+        require('telescope.builtin').keymaps()
+      end,
+      mode = {"n"},
+      desc = "Show keymaps"
+    },
   },
   opts = {
     defaults = {
@@ -36,7 +44,10 @@ return {
       },
       live_grep = {
         additional_args = {"--hidden", "-g", "!.git"}
-      }
+      },
+      keymaps = {
+        show_plug = false,
+      },
     }
   }
 }
