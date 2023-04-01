@@ -8,6 +8,7 @@ return {
     ensure_installed = {
       'c',
       'bash',
+      'elixir',
       'help',
       'json',
       'jsonc',

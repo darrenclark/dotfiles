@@ -37,7 +37,14 @@ map("i", "<C-K>", "<C-C>:bn<CR>", { silent = true })
 map("i", "<C-L>", "<C-C>:bn<CR>", { silent = true })
 
 -- Close buffer
-map("n", "<C-Q>", ":bd<CR>", { silent = true })
+local close_buffer = function()
+  if vim.bo.ft == 'neotest-output' then
+    vim.cmd [[:bd!]]
+  else
+    vim.cmd [[:bd]]
+  end
+end
+map("n", "<C-Q>", "", { callback = close_buffer, silent = true })
 
 autocmd({'LspAttach'}, {
   group = augroup('lspKeys', {clear = true}),

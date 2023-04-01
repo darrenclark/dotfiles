@@ -8,13 +8,17 @@ augroup('numberToggle', {clear = true})
 autocmd({'BufEnter', 'FocusGained', 'InsertLeave'}, {
   group = 'numberToggle',
   callback = function()
-    vim.opt.relativenumber = true
+    if vim.opt.number._value then
+      vim.opt.relativenumber = true
+    end
   end
 })
 
 autocmd({'BufLeave', 'FocusLost', 'InsertEnter'}, {
   group = 'numberToggle',
   callback = function()
-    vim.opt.relativenumber = false
+    if vim.opt.number._value then
+      vim.opt.relativenumber = false
+    end
   end
 })
