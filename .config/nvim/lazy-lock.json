@@ -6,6 +6,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
+  "elixir.nvim": { "branch": "main", "commit": "f2e1d72ad14244c1154358687132724c0df37dda" },
   "friendly-snippets": { "branch": "main", "commit": "25ddcd96540a2ce41d714bd7fea2e7f75fea8ead" },
   "jellybeans-nvim": { "branch": "main", "commit": "f77b75443adf6461ded30de0243f49771f933d06" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
