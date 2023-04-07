@@ -2,15 +2,21 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
 # Libraries
-brew "openssl"
+brew "gmp"
+brew "libyaml"
+brew "openssl@1.1"
+brew "openssl@3"
+brew "readline"
 brew "wxmac"
 
 # Binaries
 cask "1password-cli"
+cask "session-manager-plugin"
 brew "autoconf"
 brew "awscli"
 brew "aws-iam-authenticator"
 brew "cmake"
+brew "chisel"
 brew "comby"
 brew "coreutils"
 brew "fswatch"
