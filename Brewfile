@@ -33,6 +33,7 @@ cask "docker"
 cask "google-cloud-sdk"
 cask "gpg-suite-no-mail"
 cask "iterm2"
+cask "obsidian"
 cask "rectangle"
 cask "zoom"
 
