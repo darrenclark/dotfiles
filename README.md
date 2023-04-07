@@ -92,3 +92,27 @@ mix elixir_ls.release
   - [ ] configure email address based on github organization
 
 - [ ] Update `install.sh` to do everything automatically
+
+### Vim Refactor
+
+- [ ] Indent settings
+- [ ] Ctrl P / N - run tests
+- [x] shift-K for documentation
+- [x] Ctrl A - projectionist
+- [ ] `:Format` (or format on save maybe?)
+- [x] autoreload externally modified files
+- [x] Language server setup
+  - [ ] Setup more languages
+  - [ ] DAP
+  - [ ] Code actions (?) - organize imports, etc.
+  - [ ] super tab?
+- [x] Ctrl Space to open files
+- [x] `:Rg`
+- [ ] GitCoAuthoredBy
+
+New:
+
+- [x] treesitter
+  - [ ] more languages
+
+- [ ] mini libs (mini.ai, mini.comment, mini surround, etc,)
