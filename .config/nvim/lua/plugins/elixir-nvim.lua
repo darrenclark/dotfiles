@@ -2,12 +2,14 @@ return {
   "mhanberg/elixir.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   ft = { "elixir", "eex", "heex", "surface" },
   config = function()
     local elixir = require("elixir")
 
     elixir.setup {
+      capabilities = require("cmp_nvim_lsp").default_capabilities(),
       settings = elixir.settings {
         dialyzerEnabled = false,
         enableTestLenses = false,
