@@ -6,7 +6,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
       -- adapters
-      "jfpedroza/neotest-elixir"
+      "jfpedroza/neotest-elixir",
+      "nvim-neotest/neotest-python",
     },
     keys = {
       {
@@ -72,7 +73,8 @@ return {
     },
     config = function(_, opts)
       local adapters = {
-        require("neotest-elixir")
+        require("neotest-elixir"),
+        require("neotest-python"),
       }
 
       local config = vim.tbl_extend('force', opts, {adapters=adapters})

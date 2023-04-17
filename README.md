@@ -8,14 +8,6 @@
 
 ```sh
 ./install.sh
-./brew_once.sh
-
-# (open a new shell window)
-
-./brew.sh
-./post-packages.sh
-
-./defaults.sh
 ```
 
 #### N. Map Caps Lock to Control
@@ -45,8 +37,6 @@ gh auth login
 
 ```sh
 ./install.sh
-./apt.sh
-./post-packages.sh
 ```
 
 ## adsf - Erlang / Elixir
@@ -91,7 +81,7 @@ mix elixir_ls.release
   - [ ] prefill commit message based on branch's JIRA ticket
   - [ ] configure email address based on github organization
 
-- [ ] Update `install.sh` to do everything automatically
+- [x] Update `install.sh` to do everything automatically
 
 ### Vim Refactor
 
@@ -116,3 +106,11 @@ New:
   - [ ] more languages
 
 - [ ] mini libs (mini.ai, mini.comment, mini surround, etc,)
+
+# How To
+
+## Add new programming language to vim config
+
+- Configure LSP in `lsp.lua`
+- Configure test adapter in `neotest.lua`
+- Add language to treesitter in `treesitter.lua`
