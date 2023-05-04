@@ -7,10 +7,11 @@ return {
   ft = { "elixir", "eex", "heex", "surface" },
   config = function()
     local elixir = require("elixir")
+    local elixirls = require("elixir.elixirls")
 
     elixir.setup {
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      settings = elixir.settings {
+      settings = elixirls.settings {
         dialyzerEnabled = false,
         enableTestLenses = false,
         fetchDeps = true,

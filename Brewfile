@@ -12,6 +12,7 @@ brew "wxmac"
 # Binaries
 cask "1password-cli"
 cask "session-manager-plugin"
+brew "argocd"
 brew "autoconf"
 brew "awscli"
 brew "aws-iam-authenticator"
