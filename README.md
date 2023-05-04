@@ -28,7 +28,7 @@ Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import
 
 #### N. Login to github:
 
-```
+```sh
 gh auth login
 ```
 
@@ -46,11 +46,11 @@ gh auth login
 asdf plugin add erlang
 export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=/usr/local/opt/openssl@1.1"
 export KERL_BUILD_DOCS=yes
-asdf install erlang <version>
+asdf install erlang $version
 
 # Elixir
 asdf plugin add elixir
-asdf install elixir <version>
+asdf install elixir $version
 ```
 
 ### Elixir Language Server
@@ -106,6 +106,12 @@ New:
   - [ ] more languages
 
 - [ ] mini libs (mini.ai, mini.comment, mini surround, etc,)
+
+### Bugs to address
+
+- [ ] Often find myself hitting Enter while nvim-cmp is open, causing an autocomplete instead of a new line
+- [ ] Hard to get text based completions reliably when nvim-cmp open
+- [ ] Is autocomplete coming up to quick?
 
 # How To
 
