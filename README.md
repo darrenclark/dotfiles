@@ -110,7 +110,7 @@ New:
 ### Bugs to address
 
 - [ ] Often find myself hitting Enter while nvim-cmp is open, causing an autocomplete instead of a new line
-- [ ] Hard to get text based completions reliably when nvim-cmp open
+- [x] Hard to get text based completions reliably when nvim-cmp open
 - [ ] Is autocomplete coming up to quick?
 
 # How To
