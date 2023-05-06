@@ -109,7 +109,6 @@ New:
 
 ### Bugs to address
 
-- [ ] Diff colors on git commit
 
 # How To
 

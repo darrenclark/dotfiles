@@ -7,7 +7,7 @@ return {
       "rktjmp/lush.nvim"
     },
     config = function()
-      vim.cmd([[colorscheme jellybeans-nvim]])
+      vim.cmd([[colorscheme my-jellybeans]])
     end,
   },
 }
