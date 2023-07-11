@@ -33,6 +33,7 @@ brew "neovim"
 brew "ripgrep"
 brew "tree"
 brew "watch"
+brew "yj"
 
 # Apps
 cask "google-chrome"
