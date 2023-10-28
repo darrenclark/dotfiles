@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+# Based on https://gist.github.com/reegnz/b9e40993d410b75c2d866441add2cb55
+
+if [[ $# -ne 0 ]]; then
+  echo "pipe the input JSON to $0" 1>&2;
+  exit 1;
+fi
+
+json_file=$(mktemp)
+trap 'rm -f "$json_file"' EXIT
+
+cat /dev/stdin > "$json_file"
+
+echo '' \
+    | fzf --disabled \
+        --preview-window='up:90%' \
+        --print-query \
+        --preview "jq -e --color-output -r {q} $json_file || (echo '\n---\n' && jq '.' $json_file)" \
+    | read q;
+
+if [[ $? -ne 0 ]]; then
+  exit 1;
+fi
+
+jq -r "$q" "$json_file"
+echo "\n\033[38;5;250mQuery:   $q\nQuoted:  $(printf "%q" "$q")\033[0m" 1>&2;
