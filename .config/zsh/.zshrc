@@ -234,12 +234,12 @@ function kiex () {
 
 function keach () {
 	if [[ "$#" -lt 2 ]]; then
-		echo "Expected kubecontext pattern & command"; return 1;
+		echo "Expected kubecontext pattern & command" 1>&2; return 1;
 	fi
 
 	if [[ "$(kubectx | grep "$1" | grep -c prod)" -gt 0 ]]; then
 		echo "WARNING, PATTERN MATCHED FOLLOWING CLUSTERS:" 1>&2
-		kubectx | grep "$1" | grep prod
+		kubectx | grep "$1" | grep prod 1>&2;
 		echo "TO CONTINUE, TYPE 'production':" 1>&2
 		read -r response
 
