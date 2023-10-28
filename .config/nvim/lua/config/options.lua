@@ -30,8 +30,3 @@ vim.opt.undofile = true
 
 -- Live substitution
 vim.opt.inccommand = 'split'
-
--- Ident
-vim.opt.ts = 2
-vim.opt.sw = 2
-vim.opt.expandtab = true
