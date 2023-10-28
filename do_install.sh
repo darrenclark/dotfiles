@@ -154,7 +154,7 @@ function set_asdf_global_versions() {
 function install_go() {
   print_step "Installing go..."
 
-  local go_version=go1.20.2
+  local go_version=go1.21.3
   local download_path=/tmp/go.tar.gz
 
   if [[ -f /usr/local/go/VERSION ]] && [[ $(cat /usr/local/go/VERSION) = $go_version ]]; then
