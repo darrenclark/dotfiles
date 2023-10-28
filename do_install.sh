@@ -157,7 +157,7 @@ function install_go() {
   local go_version=go1.21.3
   local download_path=/tmp/go.tar.gz
 
-  if [[ -f /usr/local/go/VERSION ]] && [[ $(cat /usr/local/go/VERSION) = $go_version ]]; then
+  if [[ -f /usr/local/go/VERSION ]] && [[ $(head -n1 /usr/local/go/VERSION) = $go_version ]]; then
     echo "Skipping, already installed."
     return 0
   fi
