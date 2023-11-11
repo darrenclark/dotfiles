@@ -46,6 +46,15 @@ return {
           },
         },
         gopls = {},
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              check = {
+                command = "clippy",
+              },
+            },
+          },
+        },
       },
       setup = {}
     },

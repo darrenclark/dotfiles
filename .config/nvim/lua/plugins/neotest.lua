@@ -8,6 +8,7 @@ return {
       -- adapters
       "jfpedroza/neotest-elixir",
       "nvim-neotest/neotest-python",
+      "rouge8/neotest-rust",
     },
     keys = {
       {
@@ -75,6 +76,7 @@ return {
       local adapters = {
         require("neotest-elixir"),
         require("neotest-python"),
+        require("neotest-rust"),
       }
 
       local config = vim.tbl_extend('force', opts, {adapters=adapters})

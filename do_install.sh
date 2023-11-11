@@ -195,6 +195,33 @@ function install_rust() {
   rustup update
 }
 
+function install_rust_nextest() {
+  local dest=~/.cargo/bin
+  mkdir -p "$dest"
+
+  local url=""
+  if is_mac ; then
+    url="https://get.nexte.st/latest/mac"
+  elif is_linux && is_arm64 ; then
+    url="https://get.nexte.st/latest/linux-arm"
+  elif is_linux && ! is_arm64 ; then
+    url="https://get.nexte.st/latest/linux"
+  else
+    echo "Skipping, I don't know how to install 'cargo nextest' on $OS / $DISTRO"
+    return 0
+  fi
+
+  if [[ -f "$dest"/cargo-nextest ]]; then
+    echo "'cargo nextest' already installed.  To update:"
+    echo ""
+    echo "  curl -LsSf $url | tar zxf - -C $dest"
+    echo ""
+    return 0
+  fi
+
+  curl -LsSf $url | tar zxf - -C $dest
+}
+
 # ---
 
 detect_os
@@ -209,6 +236,7 @@ is_apt && install_apt_packages
 ! is_github_codespaces && set_asdf_global_versions
 ! is_github_codespaces && install_go
 ! is_github_codespaces && install_rust
+! is_github_codespaces && install_rust_nextest
 
 
 print_step "Done!"
