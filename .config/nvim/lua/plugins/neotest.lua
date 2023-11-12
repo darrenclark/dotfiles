@@ -79,7 +79,11 @@ return {
         require("neotest-rust"),
       }
 
-      local config = vim.tbl_extend('force', opts, {adapters=adapters})
+      local consumers = {
+        show_results = require('lib/neotest-show-results')
+      }
+
+      local config = vim.tbl_extend('force', opts, {adapters=adapters, consumers=consumers})
       require("neotest").setup(config)
     end,
   }
