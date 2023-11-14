@@ -238,9 +238,9 @@ function keach () {
 		echo "Expected kubecontext pattern & command" 1>&2; return 1;
 	fi
 
-	if [[ "$(kubectx | grep "$1" | grep -c prod)" -gt 0 ]]; then
+	if [[ "$(kubectx | grep -E "$1" | grep -c prod)" -gt 0 ]]; then
 		echo "WARNING, PATTERN MATCHED FOLLOWING CLUSTERS:" 1>&2
-		kubectx | grep "$1" | grep prod 1>&2;
+		kubectx | grep -E "$1" | grep prod 1>&2;
 		echo "TO CONTINUE, TYPE 'production':" 1>&2
 		read -r response
 
@@ -250,7 +250,7 @@ function keach () {
 	pattern="$1"
 	shift
 
-	for context in $(kubectx | grep "$pattern"); do
+	for context in $(kubectx | grep -E "$pattern"); do
 		echo "# kubectl --context $context" "${@}" 1>&2
 		kubectl --context "$context" "${@}"
 	done
