@@ -291,6 +291,10 @@ iterm2_print_user_vars() {
 source ~/.iterm2_shell_integration.zsh
 
 #export PROMPT="${PROMPT:0:1}%{$(iterm2_prompt_mark)%}${PROMPT:1}"
+#
+
+# OCaml / opam
+[[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # Load machine-specific config (if present)
 [ -f ~/.local.zsh ] && source ~/.local.zsh

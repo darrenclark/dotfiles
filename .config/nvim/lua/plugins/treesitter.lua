@@ -17,6 +17,8 @@ return {
         'lua',
         'markdown',
         'markdown_inline',
+        'ocaml',
+        'ocaml_interface',
         'python',
         'query',
         'rust',

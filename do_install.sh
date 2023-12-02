@@ -222,6 +222,18 @@ function install_rust_nextest() {
   curl -LsSf $url | tar zxf - -C $dest
 }
 
+function ocaml_setup() {
+  print_step "Setting up OCaml..."
+
+  if [[ ! -d ~/.opam ]]; then
+    opam init -n
+  else
+    echo "opam init already done"
+  fi
+
+  opam install -y dune ocaml-lsp-server odoc ocamlformat utop
+}
+
 # ---
 
 detect_os
@@ -237,6 +249,7 @@ is_apt && install_apt_packages
 ! is_github_codespaces && install_go
 ! is_github_codespaces && install_rust
 ! is_github_codespaces && install_rust_nextest
+! is_github_codespaces && ocaml_setup
 
 
 print_step "Done!"

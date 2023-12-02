@@ -20,8 +20,8 @@ return {
         DiagnosticWarn = "#cc9900",
       },
       servers = {
+        gopls = {},
         jsonls = {},
-        pyright = {},
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
           settings = {
@@ -45,7 +45,8 @@ return {
             },
           },
         },
-        gopls = {},
+        ocamllsp = {},
+        pyright = {},
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {

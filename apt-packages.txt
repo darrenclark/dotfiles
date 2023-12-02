@@ -16,6 +16,7 @@ libssl-dev
 libssl-dev
 manpages-dev
 neovim
+opam
 tree
 unzip
 zlib1g
