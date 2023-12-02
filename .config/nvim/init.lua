@@ -38,6 +38,7 @@ local lazy_config = {
 require("lazy").setup("plugins", lazy_config)
 
 require("config/autocmds")
+require("config/commands")
 require("config/options")
 require("config/keys")
 require("config/indent")
