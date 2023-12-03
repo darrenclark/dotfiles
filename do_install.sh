@@ -231,7 +231,7 @@ function ocaml_setup() {
     echo "opam init already done"
   fi
 
-  opam install -y dune ocaml-lsp-server odoc ocamlformat utop
+  opam install -y dune ocaml-lsp-server odoc ocamlformat utop reason
 }
 
 # ---
