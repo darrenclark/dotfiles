@@ -181,6 +181,7 @@ export PATH="/usr/local/go/bin:$PATH"
 
 
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.nimble/bin:$PATH
 
 # iex history
 export ERL_AFLAGS="-kernel shell_history enabled"

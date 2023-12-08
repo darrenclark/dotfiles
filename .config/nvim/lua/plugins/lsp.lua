@@ -20,6 +20,7 @@ return {
         DiagnosticWarn = "#cc9900",
       },
       servers = {
+        clojure_lsp = {},
         gopls = {},
         jsonls = {},
         lua_ls = {
@@ -46,6 +47,10 @@ return {
           },
         },
         ocamllsp = {},
+        nim_langserver = {
+          -- intalled via ./install.sh
+          mason = false,
+        },
         pyright = {},
         rust_analyzer = {
           settings = {

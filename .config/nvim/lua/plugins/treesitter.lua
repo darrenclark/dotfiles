@@ -10,6 +10,7 @@ return {
       ensure_installed = {
         'c',
         'bash',
+        'clojure',
         'elixir',
         'help',
         'json',
@@ -17,6 +18,8 @@ return {
         'lua',
         'markdown',
         'markdown_inline',
+        'nim',
+        'nim_format_string',
         'ocaml',
         'ocaml_interface',
         'python',

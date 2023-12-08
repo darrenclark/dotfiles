@@ -234,6 +234,11 @@ function ocaml_setup() {
   opam install -y dune ocaml-lsp-server odoc ocamlformat utop reason
 }
 
+function install_nim_lsp() {
+  print_step "Installing Nim LSP..."
+  nimble install -y nimlangserver
+}
+
 # ---
 
 detect_os
@@ -250,6 +255,7 @@ is_apt && install_apt_packages
 ! is_github_codespaces && install_rust
 ! is_github_codespaces && install_rust_nextest
 ! is_github_codespaces && ocaml_setup
+! is_github_codespaces && install_nim_lsp
 
 
 print_step "Done!"
