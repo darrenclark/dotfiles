@@ -56,6 +56,8 @@ return {
             },
           },
         },
+        -- Zig
+        zls = {},
       },
       setup = {}
     },

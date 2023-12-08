@@ -23,6 +23,7 @@ return {
         'query',
         'rust',
         'vim',
+        'zig',
       }
     },
     config = function(_, opts)

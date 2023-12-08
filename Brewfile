@@ -37,6 +37,7 @@ brew "ripgrep"
 brew "tree"
 brew "watch"
 brew "yj"
+brew "zig"
 
 # Apps
 cask "google-chrome"
