@@ -1,5 +1,5 @@
 return {
-  "mhanberg/elixir.nvim",
+  "elixir-tools/elixir-tools.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
@@ -10,6 +10,7 @@ return {
     local elixirls = require("elixir.elixirls")
 
     elixir.setup {
+      credo = {},
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
       settings = elixirls.settings {
         dialyzerEnabled = false,

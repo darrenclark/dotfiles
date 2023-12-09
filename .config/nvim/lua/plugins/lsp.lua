@@ -20,7 +20,14 @@ return {
         DiagnosticWarn = "#cc9900",
       },
       servers = {
-        clojure_lsp = {},
+        clojure_lsp = {
+          on_attach = function(client, bufnr)
+            local name = vim.api.nvim_buf_get_name(bufnr)
+            if string.find(name, "conjure%-log") then
+              vim.lsp.buf_detach_client(bufnr, client.id)
+            end
+          end
+        },
         gopls = {},
         jsonls = {},
         lua_ls = {

@@ -59,6 +59,9 @@ export PATH=$HOME/go/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
+# Some programs don't default to ~/.config so...
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
