@@ -20,6 +20,10 @@ return {
         DiagnosticWarn = "#cc9900",
       },
       servers = {
+        clangd = {
+          -- use system installed clangd (for now)
+          mason = false,
+        },
         clojure_lsp = {
           on_attach = function(client, bufnr)
             local name = vim.api.nvim_buf_get_name(bufnr)
@@ -28,6 +32,7 @@ return {
             end
           end
         },
+        elp = {}, -- erlang
         gopls = {},
         jsonls = {},
         lua_ls = {

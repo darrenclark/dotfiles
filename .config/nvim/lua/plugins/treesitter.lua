@@ -12,6 +12,7 @@ return {
         'bash',
         'clojure',
         'elixir',
+        'erlang',
         'help',
         'json',
         'jsonc',
