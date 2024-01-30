@@ -9,6 +9,7 @@ return {
       indent = { enable = false },
       ensure_installed = {
         'c',
+        'c_sharp',
         'bash',
         'clojure',
         'elixir',

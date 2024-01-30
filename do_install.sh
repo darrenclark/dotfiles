@@ -236,7 +236,26 @@ function ocaml_setup() {
 
 function install_nim_lsp() {
   print_step "Installing Nim LSP..."
-  nimble install -y nimlangserver
+
+  if [[ ! -f ~/.nimble/bin/nimlangserver ]]; then
+    nimble install -y nimlangserver
+  else
+    echo "nimlangserver already installed"
+  fi
+}
+
+function install_dotnet() {
+  print_step "Installing dotnet..."
+
+  local version="8.0";
+
+  if [[ -f ~/.dotnet/dotnet ]] && \
+    (~/.dotnet/dotnet --list-sdks | grep -E '^'"$version" >/dev/null) then
+
+    echo "dotnet already installed"
+  else
+    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel $version --verbose
+  fi
 }
 
 # ---
@@ -256,6 +275,7 @@ is_apt && install_apt_packages
 ! is_github_codespaces && install_rust_nextest
 ! is_github_codespaces && ocaml_setup
 ! is_github_codespaces && install_nim_lsp
+! is_github_codespaces && install_dotnet
 
 
 print_step "Done!"

@@ -59,6 +59,7 @@ return {
           },
         },
         ocamllsp = {},
+        omnisharp = {},
         nim_langserver = {
           -- intalled via ./install.sh
           mason = false,

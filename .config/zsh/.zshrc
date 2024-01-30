@@ -186,6 +186,10 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.nimble/bin:$PATH
 
+# dotnet
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+
 # iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
 export ERL_LIBS="$HOME/.config/iex"
