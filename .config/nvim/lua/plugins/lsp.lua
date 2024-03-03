@@ -74,6 +74,10 @@ return {
             },
           },
         },
+        tilt_ls = {
+          -- tilt installed via brewfile
+          mason = false,
+        },
         -- Zig
         zls = {},
       },

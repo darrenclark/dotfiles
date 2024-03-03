@@ -11,6 +11,7 @@ brew "readline"
 brew "wxmac"
 
 # Binaries
+cask "1password"
 cask "1password-cli"
 cask "session-manager-plugin"
 brew "argocd"
@@ -20,6 +21,7 @@ brew "aws-iam-authenticator"
 brew "cmake"
 brew "chisel"
 brew "clojure"
+brew "colima"
 brew "comby"
 brew "coreutils"
 brew "fswatch"
@@ -28,6 +30,7 @@ brew "gawk"
 brew "gh"
 brew "git"
 brew "jq"
+brew "k3d"
 brew "kubectl"
 brew "kubectx"
 brew "kube-ps1"
@@ -37,6 +40,7 @@ brew "neovim"
 brew "nim"
 brew "opam"
 brew "ripgrep"
+brew "tilt"
 brew "tree"
 brew "watch"
 brew "yj"
@@ -57,7 +61,5 @@ cask "zoom"
 cask "font-jetbrains-mono"
 
 # Mac App Store
-mas "1Password", id: 1333542190
-mas "Bear", id: 1091189122
 mas "Slack", id: 803453959
 mas "Paprika Recipe Manager 3", id: 1303222628

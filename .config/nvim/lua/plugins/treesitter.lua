@@ -27,12 +27,14 @@ return {
         'python',
         'query',
         'rust',
+        'starlark',
         'vim',
         'zig',
       }
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+      vim.treesitter.language.register('starlark', 'tiltfile')
     end
   },
   {
