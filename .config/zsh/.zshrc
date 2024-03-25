@@ -54,13 +54,16 @@ export PATH=$HOME/.istioctl/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Some programs don't default to ~/.config so...
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Custom completions
+fpath=($XDG_CONFIG_HOME/zsh/func/ $fpath)
+
 # Load homebrew (if present)
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source $ZSH/oh-my-zsh.sh
-
-# Some programs don't default to ~/.config so...
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

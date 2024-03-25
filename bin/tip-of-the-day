@@ -6,6 +6,7 @@ reset="\033[0m"
 
 tips=(
   "${code}cat file.json | ijq     ${reset}${text}interactive jq${reset}"
+  "${code}cht.sh <tool-or-search>     ${reset}${text}documentation for command or stack overflow search${reset}"
 )
 
 let "i = $(date +%j | sed -E 's/^0+//') % ${#tips[@]}"
