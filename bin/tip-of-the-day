@@ -1,14 +1,34 @@
 #!/usr/bin/env bash
+#
+# Usage:
+#
+#   # Print tip of the day
+#   tip-of-the-day
+#
+#   # Print all tips (test formatting)
+#   tip-of-the-day all
+#
 
-text="\033[33;3m"
+comment="\033[90;3m"
 code="\033[36m"
 reset="\033[0m"
 
 tips=(
-  "${code}cat file.json | ijq     ${reset}${text}interactive jq${reset}"
-  "${code}cht.sh <tool-or-search>     ${reset}${text}documentation for command or stack overflow search${reset}"
+  "${code}cat file.json | ijq   ${reset}${comment}# interactive jq${reset}"
+  "${code}cht.sh <tool-or-search>   ${reset}${comment}# documentation for command or stack overflow search${reset}"
 )
 
-let "i = $(date +%j | sed -E 's/^0+//') % ${#tips[@]}"
+function print_tip() {
+  local tip="$1"
 
-echo -e "\n  ${tips[i]}"
+  echo -e "\n  $tip"
+}
+
+if [[ $1 = "all" ]]; then
+  for tip in "${tips[@]}"; do
+    print_tip "$tip"
+  done
+else
+  let "i = $(date +%j | sed -E 's/^0+//') % ${#tips[@]}"
+  print_tip "${tips[i]}"
+fi
