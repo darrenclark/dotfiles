@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+text="\033[33;3m"
+code="\033[36m"
+reset="\033[0m"
+
+tips=(
+  "${code}cat file.json | ijq     ${reset}${text}interactive jq${reset}"
+)
+
+let "i = $(date +%j | sed -E 's/^0+//') % ${#tips[@]}"
+
+echo -e "\n  ${tips[i]}"

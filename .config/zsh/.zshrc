@@ -306,3 +306,6 @@ source ~/.iterm2_shell_integration.zsh
 
 # Load machine-specific config (if present)
 [ -f ~/.local.zsh ] && source ~/.local.zsh
+
+# Print tip of the day
+[ -f ~/bin/tip-of-the-day ] && ~/bin/tip-of-the-day
