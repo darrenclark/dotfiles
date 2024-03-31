@@ -1,12 +1,19 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.4',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-ui-select.nvim',
+  },
   init = function()
     local rg = function(opts)
       require('telescope.builtin').live_grep({default_text=opts.args})
     end
 
     vim.api.nvim_create_user_command('Rg', rg, {nargs = '*'})
+
+    require('lib/util').on_load("telescope.nvim", function()
+      require("telescope").load_extension('ui-select')
+    end)
   end,
   keys = {
     {
@@ -25,6 +32,12 @@ return {
       mode = {"n"},
       desc = "Show keymaps"
     },
+    {
+      "<C-enter>",
+      vim.lsp.buf.code_action,
+      mode = {"n"},
+      desc = "LSP Code action"
+    }
   },
   opts = {
     defaults = {

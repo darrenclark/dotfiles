@@ -12,6 +12,7 @@ return {
         'c_sharp',
         'bash',
         'clojure',
+        'ebnf',
         'elixir',
         'erlang',
         'help',
