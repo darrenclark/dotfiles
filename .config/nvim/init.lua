@@ -38,6 +38,8 @@ local lazy_config = {
 -- Load plugins from ./plugins/*.lua files
 require("lazy").setup("plugins", lazy_config)
 
+require("fixes/ts-colors")
+
 require("config/autocmds")
 require("config/commands")
 require("config/options")
