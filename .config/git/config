@@ -43,8 +43,6 @@
 	path = work.inc
 [includeIf "gitdir:/Users/darren.clark/"]
 	path = work.inc
-[init]
-	defaultBranch = master
 
 [log]
 	date = local
