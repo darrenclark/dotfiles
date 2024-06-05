@@ -29,6 +29,7 @@
 	helper = osxkeychain
 [diff]
 	submodule = diff
+	colorMoved = true
 [commit]
 	verbose = true
 [filter "lfs"]
