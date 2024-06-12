@@ -1,4 +1,5 @@
 .DS_Store
 .*.swp
 .elixir_ls
+.elixir-tools
 tmp/
