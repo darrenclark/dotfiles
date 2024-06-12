@@ -230,6 +230,11 @@ function ks () {
 	[[ ! -z "$pod" ]] && kubectl exec "$@" -ti "$pod" -- bash
 }
 
+function klogs () {
+	pod="$(kubectl get pods "$@" | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
+	[[ ! -z "$pod" ]] && kubectl logs "$@" -f "$pod"
+}
+
 function kiex () {
 	pod="$(kubectl get pods "$@" | awk '$3 ~ /Running/ { print $0 }' | fzf | awk '{ print $1 }')"
 	if [[ ! -z "$pod" ]]; then
