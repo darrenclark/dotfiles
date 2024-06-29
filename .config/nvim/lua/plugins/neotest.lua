@@ -10,6 +10,7 @@ return {
       "jfpedroza/neotest-elixir",
       "nvim-neotest/neotest-python",
       "rouge8/neotest-rust",
+      "nvim-neotest/nvim-nio",
     },
     keys = {
       {

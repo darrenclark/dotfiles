@@ -6,7 +6,7 @@ return {
     end,
     opts = {
       highlight = { enable = true },
-      indent = { enable = false },
+      indent = { enable = true },
       ensure_installed = {
         'c',
         'c_sharp',
