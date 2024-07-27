@@ -8,6 +8,9 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp"
     },
+    keys = {
+      { "<leader>ee", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
+    },
     opts = {
       diagnostics = {
         underline = true,
