@@ -10,12 +10,16 @@ return {
       b = {
         name = "buffer"
       },
+      c = {
+        name = "Copilot"
+      },
       e = {
         name = "LSP"
       }
     }, {prefix = "<leader>"})
   end,
   opts = {
-    triggers = {"<leader>"}
+    triggers = {"<leader>"},
+    preset = "modern",
   }
 }
