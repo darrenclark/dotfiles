@@ -104,13 +104,53 @@ return {
       },
       {
         "<leader>cm",
-        "<cmd>CopilotChatCommit<cr>",
-        desc = "Write commit message with commitizen convention"
-      },
-      {
-        "<leader>cM",
-        "<cmd>CopilotChatCommitStaged<cr>",
-        desc = "Write commit message for staged changes"
+        function()
+          local prompt = [[
+            Write a commit message.
+
+            If the the change is simple, simply output a title.
+
+            Otherwise, add additional paragraphs proportional to the size and
+            complexity of the change.
+
+            The commit message should be in the following format:
+            ```
+            title (less than 50 characters)
+
+            body (if necessary, each line less than 72 characters)
+            ```
+
+            Do not include the backticks.
+
+            Be terse, but clear.
+          ]]
+
+          require("CopilotChat").ask(prompt, {
+            selection = function(source)
+              return require("CopilotChat.select").gitdiff(source, true)
+            end,
+            callback = function(response)
+              -- credit to https://gist.github.com/jaredallard/ddb152179831dd23b230
+              local lines = {}
+              local from = 1
+              local delim_from, delim_to = string.find(response, "\n", from)
+              while delim_from do
+                table.insert(lines, string.sub(response, from, delim_from - 1))
+                from                 = delim_to + 1
+                delim_from, delim_to = string.find(response, "\n", from)
+              end
+              table.insert(lines, string.sub(response, from))
+
+              vim.api.nvim_buf_set_text(1, 0, 0, 0, 0, lines)
+
+              require("CopilotChat").close()
+            end,
+            window = {
+              layout = "float",
+              title = "Generating commit message..."
+            }
+          })
+        end
       },
     }
   }
