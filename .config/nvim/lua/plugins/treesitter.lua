@@ -15,7 +15,6 @@ return {
         'ebnf',
         'elixir',
         'erlang',
-        'help',
         'json',
         'jsonc',
         'lua',
