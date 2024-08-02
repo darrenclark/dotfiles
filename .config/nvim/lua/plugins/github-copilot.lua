@@ -29,7 +29,20 @@ return {
     },
     opts = {
       debug = true,
+      mappings = {
+        submit_prompt = {
+          normal = '<CR>',
+          insert = '<C-CR>'
+        },
+        complete = {
+          insert = ''
+        },
+      }
     },
+    config = function(_, opts)
+      require("CopilotChat.integrations.cmp").setup()
+      require("CopilotChat").setup(opts)
+    end,
     cmd = {
       "CopilotChat",
       "CopilotChatOpen",
@@ -60,7 +73,7 @@ return {
       {
         "<leader>cs",
         "<cmd>CopilotChatStop<cr>",
-        desc = "Stop current copilot output",
+        desc = "Stop current output",
       },
       {
         "<leader>cr",
@@ -70,37 +83,44 @@ return {
       {
         "<leader>ce",
         "<cmd>CopilotChatExplain<cr>",
-        desc = "Write an explanation for the active selection"
+        desc = "Explain selection",
+        mode = { "n", "v" },
       },
       {
         "<leader>cv",
         "<cmd>CopilotChatReview<cr>",
-        desc = "Review the selected code"
+        desc = "Review selection",
+        mode = { "n", "v" }
       },
       {
         "<leader>cf",
         "<cmd>CopilotChatFix<cr>",
-        desc = "Rewrite the code to fix the bug"
+        desc = "Fix bug in selection",
+        mode = { "n", "v" }
       },
       {
         "<leader>co",
         "<cmd>CopilotChatOptimize<cr>",
-        desc = "Optimize the selected code"
+        desc = "Optimize selection",
+        mode = { "n", "v" }
       },
       {
         "<leader>cd",
         "<cmd>CopilotChatDocs<cr>",
-        desc = "Add documentation comment for the selection"
+        desc = "Docs for selection",
+        mode = { "n", "v" }
       },
       {
         "<leader>ct",
         "<cmd>CopilotChatTests<cr>",
-        desc = "Generate tests for the code"
+        desc = "Generate tests for selection",
+        mode = { "n", "v" }
       },
       {
         "<leader>ci",
         "<cmd>CopilotChatFixDiagnostic<cr>",
-        desc = "Assist with the diagnostic issue"
+        desc = "Assist with diagnostic",
+        mode = { "n", "v" }
       },
       {
         "<leader>cm",
@@ -150,7 +170,9 @@ return {
               title = "Generating commit message..."
             }
           })
-        end
+        end,
+        ft = "gitcommit",
+        desc = "Generate commit message",
       },
     }
   }
