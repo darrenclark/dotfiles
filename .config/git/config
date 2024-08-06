@@ -47,3 +47,6 @@
 
 [log]
 	date = local
+
+[init]
+	defaultBranch = main
