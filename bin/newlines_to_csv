@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+
+n = ARGV.shift.to_i
+
+if n <= 0 then
+  STDOUT.write "ERROR: record size not specified\n"
+  STDOUT.write "USAGE: \n\tnewlines_to_csv <lines-per-csv-row> <input files...>\n"
+  exit(1)
+end
+
+CSV do |csv|
+  ARGF.readlines.each_slice(n).each do |record|
+    csv << record.map { |cell| cell.chomp }
+  end
+end
