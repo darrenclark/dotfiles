@@ -16,6 +16,7 @@ reset="\033[0m"
 tips=(
   "${code}cat file.json | ijq   ${reset}${comment}# interactive jq${reset}"
   "${code}cht.sh <tool-or-search>   ${reset}${comment}# documentation for command or stack overflow search${reset}"
+  "${code}lazygit --filter path/to/file   ${reset}${comment}# then press + to see file history and diffs${reset}"
 )
 
 function print_tip() {
