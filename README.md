@@ -43,9 +43,8 @@ gh auth login
 
 ```sh
 # Erlang
+ulimit -n 65536  # work around "too many open files" issue
 asdf plugin add erlang
-export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=/usr/local/opt/openssl@1.1"
-export KERL_BUILD_DOCS=yes
 asdf install erlang $version
 
 # Elixir

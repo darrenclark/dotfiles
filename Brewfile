@@ -1,11 +1,8 @@
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "clojure/tools"
 
 # Libraries
 brew "gmp"
 brew "libyaml"
-brew "openssl@1.1"
 brew "openssl@3"
 brew "readline"
 brew "wxmac"
