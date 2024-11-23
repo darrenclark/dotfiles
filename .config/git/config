@@ -40,10 +40,8 @@
 [http]
 	sslVersion = tlsv1.2
 
-[includeIf "gitdir:/Users/dclark/"]
-	path = work.inc
-[includeIf "gitdir:/Users/darren.clark/"]
-	path = work.inc
+[include]
+  path = ~/.local.gitconfig
 
 [log]
 	date = local

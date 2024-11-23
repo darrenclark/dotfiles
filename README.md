@@ -32,6 +32,19 @@ Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import
 gh auth login
 ```
 
+#### N. Configure work-specific Git settings - email, commit signing, etc.
+
+Add `~/.local.gitconfig` with something like:
+
+```
+[user]
+    name = Darren Clark
+    email = darren.clark@thescore.com
+    signingkey = C9D82E4CF423E7F6
+
+[commit]
+    gpgsign = true
+```
 
 ### Linux
 
