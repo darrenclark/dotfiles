@@ -15,6 +15,7 @@ return {
         'ebnf',
         'elixir',
         'erlang',
+        'javascript',
         'json',
         'jsonc',
         'lua',
@@ -28,6 +29,7 @@ return {
         'query',
         'rust',
         'starlark',
+        'typescript',
         'vim',
         'zig',
       }
