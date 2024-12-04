@@ -22,7 +22,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     dependencies = {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
@@ -37,10 +37,10 @@ return {
         complete = {
           insert = ''
         },
-      }
+      },
+      chat_autocomplete = true,
     },
     config = function(_, opts)
-      require("CopilotChat.integrations.cmp").setup()
       require("CopilotChat").setup(opts)
     end,
     cmd = {
@@ -54,15 +54,14 @@ return {
       "CopilotChatLoad",
       "CopilotChatDebugInfo",
       "CopilotChatModels",
+      "CopilotChatAgents",
       "CopilotChatExplain",
       "CopilotChatReview",
       "CopilotChatFix",
       "CopilotChatOptimize",
       "CopilotChatDocs",
       "CopilotChatTests",
-      "CopilotChatFixDiagnostic",
       "CopilotChatCommit",
-      "CopilotChatCommitStaged"
     },
     keys = {
       {
@@ -114,12 +113,6 @@ return {
         "<leader>ct",
         "<cmd>CopilotChatTests<cr>",
         desc = "Generate tests for selection",
-        mode = { "n", "v" }
-      },
-      {
-        "<leader>ci",
-        "<cmd>CopilotChatFixDiagnostic<cr>",
-        desc = "Assist with diagnostic",
         mode = { "n", "v" }
       },
       {

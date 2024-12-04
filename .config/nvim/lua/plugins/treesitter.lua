@@ -31,6 +31,7 @@ return {
         'starlark',
         'typescript',
         'vim',
+        'yaml',
         'zig',
       }
     },
