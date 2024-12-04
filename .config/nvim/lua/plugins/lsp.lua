@@ -175,5 +175,7 @@ return {
     config = function(_, opts)
       require("mason").setup(opts)
     end
-  }
+  },
+  -- Adds missing imports in python (not supported in pyright)
+  { "stevanmilic/nvim-lspimport" }
 }

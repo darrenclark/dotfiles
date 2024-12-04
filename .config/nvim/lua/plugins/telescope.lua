@@ -34,7 +34,13 @@ return {
     },
     {
       "<C-enter>",
-      vim.lsp.buf.code_action,
+      function ()
+        if vim.bo.filetype == 'python' then
+          require("lspimport").import()
+        else
+          vim.lsp.buf.code_action()
+        end
+      end,
       mode = {"n"},
       desc = "LSP Code action"
     }
