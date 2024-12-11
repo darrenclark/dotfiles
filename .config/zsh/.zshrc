@@ -301,6 +301,9 @@ if [ -f  "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.
 	source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
+# terraform
+alias tf=terraform
+
 iterm2_print_user_vars() {
   #iterm2_set_user_var githubHttp $(git remote get-url origin | sed 's/git@/https:\/\//; s/github.com:/github.com\//')
 }
