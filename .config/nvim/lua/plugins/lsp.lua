@@ -83,7 +83,8 @@ return {
           mason = false,
         },
         -- YAML
-        yamlls = {
+        -- Doesn't work great - need to see if I can fix it somehow
+        --[[yamlls = {
           settings = {
             yaml = {
               schemas = {
@@ -106,7 +107,7 @@ return {
               },
             },
           },
-        },
+        },]]
         -- Zig
         zls = {},
       },

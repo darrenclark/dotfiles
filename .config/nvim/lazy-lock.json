@@ -39,6 +39,7 @@
   "trouble.nvim": { "branch": "main", "commit": "46cf952fc115f4c2b98d4e208ed1e2dce08c9bf6" },
   "typescript-tools.nvim": { "branch": "master", "commit": "346062e8cd06e82776b60785a040dfbbdcb6de77" },
   "vim-elixir": { "branch": "master", "commit": "39cfaec9ea71c22a82c459ecd64860c8850f1215" },
+  "vim-helm": { "branch": "master", "commit": "ae1ebc160d2b9b90108477ab10df7a4fc501e358" },
   "vim-projectionist": { "branch": "master", "commit": "104394c31ead4b09fbf0e16f9d367e3e179ee50a" },
   "which-key.nvim": { "branch": "main", "commit": "9b365a6428a9633e3eeb34dbef1b791511c54f70" }
 }
