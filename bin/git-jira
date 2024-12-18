@@ -2,12 +2,13 @@
 
 set -eu
 
-DEFAULT_PAGE="https://jira.thescore.com/secure/RapidBoard.jspa?rapidView=76"
+jira_board_url=${JIRA_BOARD_URL?Set JIRA_BOARD_URL environment variable in ~/.local.zsh}
+jira_ticket_base_url=${JIRA_TICKET_BASE_URL?Set JIRA_TICKET_BASE_URL environment variable in ~/.local.zsh}
 
 jira_ticket_id="$(git rev-parse --abbrev-ref HEAD | egrep -o '[A-Z]+-[0-9]+' || true)"
 
 if [[ ! -z "$jira_ticket_id" ]]; then
-	open "https://jira.thescore.com/browse/$jira_ticket_id"
+	open "$jira_ticket_base_url/$jira_ticket_id"
 else
-	open "$DEFAULT_PAGE"
+	open "$jira_board_url"
 fi

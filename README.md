@@ -39,11 +39,20 @@ Add `~/.local.gitconfig` with something like:
 ```
 [user]
     name = Darren Clark
-    email = darren.clark@thescore.com
+    email = darren.clark@example.com
     signingkey = C9D82E4CF423E7F6
 
 [commit]
     gpgsign = true
+```
+
+#### N. Configure work-specific JIRA settings
+
+Add `~/.local.zsh` with something like:
+
+```sh
+export JIRA_BOARD_URL='https://example.atlassian.net/jira/projects?page=1&sortKey=name&sortOrder=ASC'
+export JIRA_TICKET_BASE_URL='https://example.atlassian.net/browse'
 ```
 
 ### Linux
@@ -51,6 +60,7 @@ Add `~/.local.gitconfig` with something like:
 ```sh
 ./install.sh
 ```
+
 
 ## adsf - Erlang / Elixir
 
