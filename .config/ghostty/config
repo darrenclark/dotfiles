@@ -1,7 +1,5 @@
 focus-follows-mouse = true
 
-keybind = global:ctrl+shift+`=toggle_visibility
-
 keybind = cmd+shift+left=previous_tab
 keybind = cmd+shift+right=previous_tab
 

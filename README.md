@@ -26,6 +26,10 @@ System Preferences -> Keyboard -> Modifier Keys
 
 Launch `Rectangle.app`, choose 'Spectacle' settings, open Preferences and import `./RectangleConfig.json`
 
+#### N. Start Hammerspoon at launch
+
+Launch `Hammerspoon.app`, update preferences to start at login & hide menu bar item
+
 #### N. Login to github:
 
 ```sh

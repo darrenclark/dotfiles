@@ -66,7 +66,7 @@ function copy_configs() {
     ln -n -v -s "$PWD/$dir" "$HOME/$dir" || true
   done
 
-  for file in .zshenv .iterm2_shell_integration.zsh .asdf .elixir-ls; do
+  for file in .zshenv .iterm2_shell_integration.zsh .asdf .elixir-ls .hammerspoon; do
     ln -n -v -s "$PWD/$file" "$HOME/$file" || true
   done
 }
