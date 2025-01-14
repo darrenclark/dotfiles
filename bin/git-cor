@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-git reflog show --pretty=format:'%gs ~ %gd' --date=relative | awk '{when=$0; gsub(/.*HEAD@\{/, "", when); gsub("}", "", when)} /^checkout/ { print when "\t\t" $6 } /^Branch: renamed refs\/heads\// { sub("refs/heads/", "", $5); print when "\t\t" $5 }' | fzf --nth=3 -d "\t" --prompt="branch > " | awk 'BEGIN { FS="\t" } { print $3 }' | xargs -n1 git checkout
+git reflog show --pretty=format:'%gs ~ %gd' --date=relative | awk '{when=$0; gsub(/.*HEAD@\{/, "", when); gsub("}", "", when)} /^checkout/ { print when "\t\t" $6 } /^Branch: renamed refs\/heads\// { sub("refs/heads/", "", $5); print when "\t\t" $5 }' | fzf --no-sort --nth=3 -d "\t" --prompt="branch > " | awk 'BEGIN { FS="\t" } { print $3 }' | xargs -n1 git checkout
