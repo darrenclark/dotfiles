@@ -304,6 +304,12 @@ fi
 # terraform
 alias tf=terraform
 
+# https://www.pgrs.net/2022/06/02/simple-command-line-function-to-decode-jwts/
+jwt-decode() {
+  jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<< $1
+}
+
+
 iterm2_print_user_vars() {
   #iterm2_set_user_var githubHttp $(git remote get-url origin | sed 's/git@/https:\/\//; s/github.com:/github.com\//')
 }
