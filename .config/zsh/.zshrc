@@ -290,7 +290,15 @@ alias vless='nvim -u /usr/local/Cellar/neovim/0.3.4/share/nvim/runtime/macros/le
 [ -d "$HOME"/Projects ] && export PROJECTS_DIR="$HOME"/Projects
 
 p() { cd "$PROJECTS_DIR/$1"; }
-_p() { pushd "$PROJECTS_DIR" >/dev/null; COMPREPLY=("$2"*/); popd >/dev/null; }
+_p() {
+  pushd "$PROJECTS_DIR" >/dev/null;
+  if [[ "$2" == "--" ]]; then
+    COMPREPLY=(*);
+  else
+    COMPREPLY=("$2"*);
+  fi
+  popd >/dev/null;
+}
 complete -F _p p
 
 alias fv='vim -O $(fzf -m --preview "bat --style=numbers,changes --color always {}")'
