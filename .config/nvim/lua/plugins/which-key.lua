@@ -10,6 +10,7 @@ return {
       { "<leader>b", group = "buffer" },
       { "<leader>c", group = "Copilot" },
       { "<leader>e", group = "LSP" },
+      { "<leader>h", group = "Httpyac" },
     })
   end,
   opts = {
