@@ -78,6 +78,7 @@ return {
             },
           },
         },
+        tailwindcss = {},
         tilt_ls = {
           -- tilt installed via brewfile
           mason = false,
