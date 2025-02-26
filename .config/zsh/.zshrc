@@ -317,6 +317,9 @@ jwt-decode() {
   jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<< $1
 }
 
+# pantsbuild
+alias pa=pants
+alias pc='pants --changed-since=origin/main --changed-dependents=transitive'
 
 iterm2_print_user_vars() {
   #iterm2_set_user_var githubHttp $(git remote get-url origin | sed 's/git@/https:\/\//; s/github.com:/github.com\//')
