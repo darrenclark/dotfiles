@@ -317,6 +317,14 @@ jwt-decode() {
   jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<< $1
 }
 
+nx() {
+  if [[ -f "frontend/nx.json" ]]; then
+    (cd frontend/ && command nx "$@")
+  else
+    command nx "$@"
+  fi
+}
+
 # pantsbuild
 alias pa=pants
 alias pc='pants --changed-since=origin/main --changed-dependents=transitive'
