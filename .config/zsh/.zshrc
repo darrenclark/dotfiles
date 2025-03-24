@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
-export PATH=":$HOME/.rbenv/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
 
 alias g=git
 alias b='bundle exec'
