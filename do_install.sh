@@ -69,6 +69,10 @@ function copy_configs() {
   for file in .zshenv .iterm2_shell_integration.zsh .asdf .elixir-ls .hammerspoon; do
     ln -n -v -s "$PWD/$file" "$HOME/$file" || true
   done
+
+  if is_mac ; then
+    ln -n -v -s "$PWD/.config/jj" "$HOME/Library/Application Support/jj" || true
+  fi
 }
 
 function copy_shell_scripts() {

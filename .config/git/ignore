@@ -4,3 +4,4 @@
 .elixir-tools
 tmp/
 .dbee.json
+.jj/
