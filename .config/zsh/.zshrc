@@ -52,6 +52,7 @@ plugins=(git asdf)
 export PATH="/usr/local/bin:/usr/local/share/dotnet:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$HOME/.istioctl/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.krew/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Some programs don't default to ~/.config so...
