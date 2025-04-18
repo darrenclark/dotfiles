@@ -215,9 +215,9 @@ if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ] || [ -f "/opt/homebrew/sha
 
 	function k_set_prod_background() {
 		if [[ "$KUBE_PS1_CONTEXT" == *prod* ]]; then
-			echo -e "\033]1337;SetColors=bg=500\a"
+			echo -e "\e]11;#550000\e\\"
 		else
-			echo -e "\033]1337;SetColors=bg=000\a"
+			echo -e "\e]11;#000000\e\\"
 		fi
 	}
 	export PROMPT="${PROMPT:0:113}"' $(kube_ps1)$(k_set_prod_background)'"${PROMPT:113}"
