@@ -64,6 +64,7 @@ cask "hammerspoon"
 cask "iterm2"
 cask "obsidian"
 cask "ollama"
+cask "orbstack"
 cask "rectangle"
 cask "zoom"
 
