@@ -39,13 +39,13 @@ DISABLE_AUTO_UPDATE="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/.config/zsh/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf)
+plugins=(git jj asdf)
 
 # User configuration
 
@@ -220,7 +220,14 @@ if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ] || [ -f "/opt/homebrew/sha
 			echo -e "\e]11;#000000\e\\"
 		fi
 	}
-	export PROMPT="${PROMPT:0:113}"' $(kube_ps1)$(k_set_prod_background)'"${PROMPT:113}"
+
+  function kube_prompt_info() {
+    echo "$(kube_ps1)$(k_set_prod_background)"
+  }
+else
+  function kube_prompt_info() {
+    echo ""
+  }
 fi
 
 alias k=kubectl
