@@ -36,7 +36,7 @@ Launch `Hammerspoon.app`, update preferences to start at login & hide menu bar i
 gh auth login
 ```
 
-#### N. Configure work-specific Git settings - email, commit signing, etc.
+#### N. Configure work-specific Git and JJ settings - email, commit signing, etc.
 
 Add `~/.local.gitconfig` with something like:
 
@@ -48,6 +48,19 @@ Add `~/.local.gitconfig` with something like:
 
 [commit]
     gpgsign = true
+```
+
+Add `~/.config/jj/conf.d/work.toml` with:
+
+```
+--when.repositories = ["~/the/work/repos"]
+
+[user]
+email = "darren.clark@example.com"
+
+[signing]
+behavior = "own"
+backend = "gpg"
 ```
 
 #### N. Configure work-specific JIRA settings
