@@ -179,5 +179,9 @@ return {
     end
   },
   -- Adds missing imports in python (not supported in pyright)
-  { "stevanmilic/nvim-lspimport" }
+  {
+    "stevanmilic/nvim-lspimport",
+    -- https://github.com/stevanmilic/nvim-lspimport/pull/9/commits/2c0dfc4674493ca3ef3eddca26480e124a3f2643
+    commit = "2c0dfc4674493ca3ef3eddca26480e124a3f2643"
+  }
 }
