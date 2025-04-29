@@ -1,3 +1,6 @@
 [user]
 name = "Darren Clark"
 email = "darrenjoelclark@icloud.com"
+
+[ui]
+default-command = "log"
