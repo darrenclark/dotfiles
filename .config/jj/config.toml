@@ -4,3 +4,12 @@ email = "darrenjoelclark@icloud.com"
 
 [ui]
 default-command = "log"
+
+[aliases]
+ab = ["abandon"]
+g = ["git"]
+gf = ["git", "fetch"]
+gp = ["git", "push", "--allow-new"]
+rb = ["rebase"]
+sq = ["squash"]
+dup = ["duplicate"]
