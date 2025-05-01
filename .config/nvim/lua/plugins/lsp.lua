@@ -23,6 +23,7 @@ return {
         DiagnosticWarn = "#cc9900",
       },
       servers = {
+        buf_ls = {},
         clangd = {
           -- use system installed clangd (for now)
           mason = false,
