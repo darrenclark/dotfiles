@@ -3,7 +3,7 @@ return {
   opts = {
     keys = {
       ["<esc>"] = "close",
-      ["<cr>"] = "jump_close",
+      ["<cr>"] = "jump",
     }
   },
   cmd = "Trouble",
