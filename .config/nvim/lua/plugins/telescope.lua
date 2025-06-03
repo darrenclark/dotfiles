@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-ui-select.nvim',
+    'folke/trouble.nvim',
   },
   init = function()
     local rg = function(opts)
@@ -49,7 +50,12 @@ return {
     defaults = {
       mappings = {
         i = {
-          ["<esc>"] = 'close'
+          ["<esc>"] = 'close',
+          ["<C-t>"] = function (...) require("trouble.sources.telescope").open(...) end
+        },
+        n = {
+          ["<esc>"] = 'close',
+          ["<C-t>"] = function (...) require("trouble.sources.telescope").open(...) end
         }
       },
       layout_config = {
