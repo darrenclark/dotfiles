@@ -71,7 +71,6 @@ function copy_configs() {
   done
 
   if is_mac ; then
-    ln -n -v -s "$PWD/.config/jj" "$HOME/Library/Application Support/jj" || true
     ln -n -v -s "$PWD/.config/streamdown" "$HOME/Library/Application Support/streamdown" || true
   fi
 }
