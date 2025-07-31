@@ -102,6 +102,7 @@ export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
 alias g=git
 alias b='bundle exec'
 alias e=$EDITOR
+alias j=jj
 
 # to "fix" git-diff output
 export LESS="-F -X -R"
