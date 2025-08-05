@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ "$#" -ne 2 ] || [ "$1" != "-r" ]; then
+  echo "Usage: $0 -r <revision>"
+  exit 1
+fi
+
+rev="$2"
+
+# Check if the revision is valid  (prints error & exits if not)
+jj log --ignore-working-copy --color=always -r "$rev" --no-graph -T 'commit_id' > /dev/null
+
+bookmark_name="$(jj log --ignore-working-copy -r "$rev" --template 'description.first_line()' | head -n 1 | sed -E 's/[^a-zA-Z0-9_-]+/-/g; s/^-+|-+$//g; s/-+/-/g')"
+if [ -z "$bookmark_name" ]; then
+  echo "Error: Unable to create bookmark name from description."
+  exit 1
+fi
+
+jj bookmark create -r "$rev" "$bookmark_name"
