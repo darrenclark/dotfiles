@@ -6,3 +6,11 @@ hs.hotkey.bind({"ctrl", "shift"}, "`", function()
     hs.application.launchOrFocus("iTerm")
   end
 end)
+
+hs.hotkey.bind({"ctrl", "shift"}, "1", function()
+  hs.application.launchOrFocus("Google Chrome")
+end)
+
+hs.hotkey.bind({"ctrl", "shift"}, "2", function()
+  hs.application.launchOrFocus("Slack")
+end)
