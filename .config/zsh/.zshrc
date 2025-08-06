@@ -350,8 +350,18 @@ source ~/.iterm2_shell_integration.zsh
 # OCaml / opam
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
+# sdkman
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator
+
 # Load machine-specific config (if present)
 [ -f ~/.local.zsh ] && source ~/.local.zsh
 
 # Print tip of the day
 [ -f ~/bin/tip-of-the-day ] && ~/bin/tip-of-the-day
+
