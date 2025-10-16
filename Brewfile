@@ -66,6 +66,7 @@ cask "obsidian"
 cask "ollama"
 cask "orbstack"
 cask "rectangle"
+cask "visual-studio-code"
 cask "zoom"
 
 # Fonts
