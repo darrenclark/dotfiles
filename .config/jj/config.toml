@@ -4,6 +4,7 @@ email = "darrenjoelclark@icloud.com"
 
 [ui]
 default-command = "log"
+merge-editor = "mergiraf"
 
 [aliases]
 ab = ["abandon"]
