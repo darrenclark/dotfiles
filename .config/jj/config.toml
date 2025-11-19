@@ -26,3 +26,13 @@ showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 
 [templates]
 git_push_bookmark = '"darrenclark/" ++ description.first_line().replace(regex:"[^a-zA-Z0-9_-]+", "-").replace(regex:"-+", "-").replace(regex:"^-+|-+$", "")'
+
+draft_commit_description = '''
+concat(
+  builtin_draft_commit_description,
+  "\nJJ: Has these parents:\n",
+  parents.map(|c| "JJ:   " ++ c.commit_id().short() ++ "  " ++ c.description().first_line()).join("\n"),
+  "\n\nJJ: ignore-rest\n",
+  diff.git(),
+)
+'''
