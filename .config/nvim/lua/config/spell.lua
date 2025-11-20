@@ -1,5 +1,6 @@
 vim.opt.spell = true
 vim.opt.spelllang = { "en_ca", "en_us" }
+vim.opt.spelloptions = "camel"
 
 vim.api.nvim_set_hl(0, "SpellBad",  { undercurl = true, sp = "#d48787" }) -- red
 
@@ -10,4 +11,4 @@ vim.api.nvim_set_hl(0, "SpellCap",  {})
 -- disabled (rare/archaic/etc. words)
 vim.api.nvim_set_hl(0, "SpellRare", {})
 
-vim.opt.spellfile = "~/.config/nvim/spell/custom.utf-8.add"
+vim.opt.spellfile = vim.fn.expand("~/.config/nvim/spell/custom.utf-8.add")
