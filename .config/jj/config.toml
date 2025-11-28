@@ -24,6 +24,9 @@ bc = ["util", "exec", "--", "jj-bookmark-create-from-description"]
 n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 
+[revset-aliases]
+rebaseable = 'mine() & (mutable() ~ remote_bookmarks()) & immutable()+'
+
 [templates]
 git_push_bookmark = '"darrenclark/" ++ description.first_line().replace(regex:"[^a-zA-Z0-9_-]+", "-").replace(regex:"-+", "-").replace(regex:"^-+|-+$", "")'
 
