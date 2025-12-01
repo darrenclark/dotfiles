@@ -102,3 +102,7 @@ revset
 nvim
 darrenclark
 utf
+presigned
+whitelisted
+protobuf
+LLM
