@@ -20,7 +20,6 @@ sq = ["squash"]
 d = ["desc"]
 dup = ["duplicate"]
 el = ["evolog", "-p"]
-bc = ["util", "exec", "--", "jj-bookmark-create-from-description"]
 n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 
