@@ -22,6 +22,7 @@ dup = ["duplicate"]
 el = ["evolog", "-p"]
 n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 [revset-aliases]
 rebaseable = 'mine() & (mutable() ~ remote_bookmarks()) & immutable()+'
