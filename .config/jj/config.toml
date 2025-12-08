@@ -8,6 +8,7 @@ merge-editor = "mergiraf"
 
 [aliases]
 ab = ["abandon"]
+abs = ["absorb"]
 ed = ["edit"]
 g = ["git"]
 gf = ["git", "fetch"]
