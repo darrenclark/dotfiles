@@ -25,6 +25,9 @@ n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
+[revsets]
+log = 'present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | (mine() & bookmarks())'
+
 [revset-aliases]
 rebaseable = 'mine() & (mutable() ~ remote_bookmarks()) & immutable()+'
 
