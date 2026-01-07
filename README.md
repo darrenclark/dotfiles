@@ -116,6 +116,10 @@ mix elixir_ls.release
 
 ## TODO
 
+- [ ] Integrate Gemini plan: commands (https://github.com/philschmid/gemini-cli-extension)
+
+### Older:
+
 - Default git hooks to:
   - [ ] prefill commit message based on branch's JIRA ticket
   - [ ] configure email address based on github organization
