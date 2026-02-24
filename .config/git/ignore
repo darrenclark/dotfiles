@@ -6,3 +6,5 @@ tmp/
 .dbee.json
 .jj/
 .darren/
+
+**/.claude/settings.local.json

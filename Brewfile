@@ -55,6 +55,8 @@ brew "zig"
 
 # Apps
 cask "chatgpt"
+cask "claude"
+cask "claude-code"
 cask "google-chrome"
 cask "docker"
 cask "ghostty@tip"
