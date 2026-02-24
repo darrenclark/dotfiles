@@ -9,6 +9,7 @@ merge-editor = "mergiraf"
 [aliases]
 ab = ["abandon"]
 abs = ["absorb"]
+e = ["edit"]
 ed = ["edit"]
 g = ["git"]
 gf = ["git", "fetch"]
@@ -25,6 +26,25 @@ n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 diffp = ["diff", "-r", "@-"]  # "diff parent"
+pr = ["util", "exec", "--", "bash", "-c", """
+REV="${1:-@}"
+REMOTE_URL=$(jj --ignore-working-copy git remote list | head -1 | awk '{print $2}' | sed 's/\\.git$//' | sed 's|git@github.com:|https://github.com/|')
+BOOKMARK=$(jj --ignore-working-copy log -r "$REV" --no-graph -T 'bookmarks.map(|b| b.name()).join(" ")' 2>/dev/null | awk '{print $1}')
+PARENT_BOOKMARK=$(jj --ignore-working-copy log -r "$REV-" --no-graph -T 'bookmarks.map(|b| b.name()).join(" ")' 2>/dev/null | awk '{print $1}')
+if [ -z "$BOOKMARK" ]; then
+  HEAD=$(jj --ignore-working-copy log -r "$REV" --no-graph -T 'commit_id.short(12)')
+else
+  HEAD="$BOOKMARK"
+fi
+if [ -z "$PARENT_BOOKMARK" ]; then
+  BASE=$(jj --ignore-working-copy log -r "$REV-" --no-graph -T 'commit_id.short(12)')
+else
+  BASE="$PARENT_BOOKMARK"
+fi
+URL="${REMOTE_URL}/compare/${BASE}...${HEAD}?expand=1"
+echo "$URL"
+open "$URL"
+""", ""]
 
 [revsets]
 log = 'present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | (mine() & bookmarks())'
