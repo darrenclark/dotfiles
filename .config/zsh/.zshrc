@@ -320,6 +320,8 @@ fi
 
 # terraform
 alias tf=terraform
+alias tfp='tf plan -out=plan.tfplan'
+alias tfa='tf apply plan.tfplan'
 
 # https://www.pgrs.net/2022/06/02/simple-command-line-function-to-decode-jwts/
 jwt-decode() {
