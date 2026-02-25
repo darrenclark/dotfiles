@@ -86,6 +86,16 @@ function copy_shell_scripts() {
   done
 }
 
+function copy_ai_configs() {
+  print_step "Linking AI configuration files..."
+
+  # Claude
+  mkdir -v -p "$HOME/.claude"
+  for file in ai/claude/*; do
+    ln -n -v -s "$PWD/$file" "$HOME/.claude/$(basename $file)" || true
+  done
+}
+
 function install_brew_if_needed() {
   print_step "Installing brew..."
 
@@ -268,6 +278,7 @@ detect_os
 init_submodules
 copy_configs
 copy_shell_scripts
+copy_ai_configs
 is_mac && macos_defaults
 is_brew && install_brew_if_needed
 is_brew && brew_bundle_install
