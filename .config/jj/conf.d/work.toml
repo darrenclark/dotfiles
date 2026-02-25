@@ -1,0 +1,8 @@
+--when.repositories = ["~/Projects/kiid"]
+
+[user]
+email = "darren@kiid.ai"
+
+[signing]
+behavior = "own"
+backend = "gpg"
