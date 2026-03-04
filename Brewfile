@@ -51,6 +51,7 @@ brew "tmux"
 brew "tree"
 brew "watch"
 brew "yj"
+brew "yq"
 brew "zig"
 
 # Apps
