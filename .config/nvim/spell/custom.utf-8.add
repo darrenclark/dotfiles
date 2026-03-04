@@ -147,3 +147,4 @@ redis
 cli
 valkey
 noqa
+composable
