@@ -15,5 +15,6 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
-  }
+  },
+  "model": "claude-opus-4-5"
 }
