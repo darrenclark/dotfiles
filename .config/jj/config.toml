@@ -26,6 +26,12 @@ n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 diffp = ["diff", "-r", "@-"]  # "diff parent"
+ws = ["workspace"]
+wsa = ["workspace", "add"]
+wsf = ["workspace", "forget"]
+wsl = ["workspace", "list"]
+wsu = ["workspace", "update-stale"]
+# Open the GitHub compare view for the current commit, or a specified revision.
 pr = ["util", "exec", "--", "bash", "-c", """
 REV="${1:-@}"
 REMOTE_URL=$(jj --ignore-working-copy git remote list | head -1 | awk '{print $2}' | sed 's/\\.git$//' | sed 's|git@github.com:|https://github.com/|')
