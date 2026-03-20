@@ -6,3 +6,5 @@ keybind = cmd+shift+right=previous_tab
 theme = iTerm2 Dark Background
 background = #0d0d0d
 split-divider-color = #333333
+
+macos-titlebar-style = hidden
