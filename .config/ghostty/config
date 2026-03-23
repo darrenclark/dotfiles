@@ -8,3 +8,5 @@ background = #0d0d0d
 split-divider-color = #333333
 
 macos-titlebar-style = hidden
+
+link-url = true
