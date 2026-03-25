@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "say ${PWD##*/} awaiting input"
+            "command": "~/.claude/hooks/notification-say.sh"
           }
         ]
       }
