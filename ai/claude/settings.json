@@ -8,6 +8,10 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/notification-say.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notification-tmux.sh"
           }
         ]
       }
