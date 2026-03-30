@@ -94,6 +94,12 @@ function copy_ai_configs() {
   for file in ai/claude/*; do
     ln -n -v -s "$PWD/$file" "$HOME/.claude/$(basename $file)" || true
   done
+
+  # skills - all agents
+  mkdir -v -p "$HOME/.claude/skills"
+  for file in ai/skills/*; do
+    ln -n -v -s "$PWD/$file" "$HOME/.claude/skills/$(basename $file)" || true
+  done
 }
 
 function install_brew_if_needed() {
