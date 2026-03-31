@@ -9,6 +9,7 @@ merge-editor = "mergiraf"
 [aliases]
 ab = ["abandon"]
 abs = ["absorb"]
+diffs = ["diff", "--stat"]
 e = ["edit"]
 ed = ["edit"]
 g = ["git"]
@@ -22,6 +23,8 @@ sq = ["squash"]
 d = ["desc"]
 dup = ["duplicate"]
 el = ["evolog", "-p"]
+l = ["log", "-r", "current_stack"]
+lo = ["log", "-r", "::@"]
 n = ["new"]
 showdesc = ["log", "--no-graph", "--template", "description", "-r"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
@@ -57,6 +60,7 @@ log = 'present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | (mine
 
 [revset-aliases]
 rebaseable = 'mine() & (mutable() ~ remote_bookmarks()) & immutable()+'
+current_stack = 'latest(trunk() & ancestors(@)) | roots(trunk()..@)::'
 
 [templates]
 git_push_bookmark = '"darrenclark/" ++ description.first_line().replace(regex:"[^a-zA-Z0-9_-]+", "-").replace(regex:"-+", "-").replace(regex:"^-+|-+$", "")'
