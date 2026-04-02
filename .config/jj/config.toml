@@ -9,6 +9,7 @@ merge-editor = "mergiraf"
 [aliases]
 ab = ["abandon"]
 abs = ["absorb"]
+cat = ["file", "show"]
 diffs = ["diff", "--stat"]
 e = ["edit"]
 ed = ["edit"]
