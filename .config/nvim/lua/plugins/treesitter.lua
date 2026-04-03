@@ -1,51 +1,63 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    build = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
+    commit = "4916d6592ede8c07973490d9322f187e07dfefac",
+    lazy = false,
+    build = ":TSUpdate",
     opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
-      ensure_installed = {
-        'c',
-        'c_sharp',
-        'bash',
-        'clojure',
-        'ebnf',
-        'elixir',
-        'erlang',
-        'hcl',
-        'javascript',
-        'json',
-        'jsonc',
-        'lua',
-        'markdown',
-        'markdown_inline',
-        'nim',
-        'nim_format_string',
-        'ocaml',
-        'ocaml_interface',
-        'python',
-        'query',
-        'rust',
-        'starlark',
-        'terraform',
-        'typescript',
-        'vim',
-        'yaml',
-        'zig',
+      parsers_and_filetypes = {
+        c = { 'c' },
+        c_sharp = { 'cs' },
+        bash = { 'sh', 'bash', 'zsh' },
+        clojure = { 'clojure' },
+        ebnf = { 'ebnf' },
+        elixir = { 'elixir' },
+        erlang = { 'erlang' },
+        hcl = { 'hcl' },
+        javascript = { 'javascript' },
+        json = { 'json' },
+        -- TODO: Remove? replace?
+        --jsonc = { 'jsonc' },
+        lua = { 'lua' },
+        markdown = { 'markdown' },
+        markdown_inline = { 'markdown' },
+        nim = { 'nim' },
+        nim_format_string = { 'nim' },
+        ocaml = { 'ocaml' },
+        ocaml_interface = { 'ocaml' },
+        python = { 'python' },
+        query = { 'query' },
+        rust = { 'rust' },
+        starlark = { 'bzl' },
+        terraform = { 'terraform' },
+        typescript = { 'typescript' },
+        vim = { 'vim' },
+        yaml = { 'yaml' },
+        zig = { 'zig' },
       }
     },
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
+      local parsers = {}
+      local filetypes = {}
+      for p, fts in pairs(opts.parsers_and_filetypes) do
+        table.insert(parsers, p)
+        for _, ft in ipairs(fts) do
+          table.insert(filetypes, ft)
+        end
+      end
+
+      -- Install parsers
+      require("nvim-treesitter").install(parsers)
+
+      -- Enable highlighting
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = filetypes,
+        callback = function() vim.treesitter.start() end,
+      })
+
       vim.treesitter.language.register('starlark', 'tiltfile')
+
+      -- TODO: Indent? Fold?
     end
-  },
-  {
-    "nvim-treesitter/playground",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    }
   }
 }
