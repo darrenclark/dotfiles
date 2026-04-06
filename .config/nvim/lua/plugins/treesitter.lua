@@ -28,7 +28,7 @@ return {
         python = { 'python' },
         query = { 'query' },
         rust = { 'rust' },
-        starlark = { 'bzl' },
+        starlark = { 'bzl', 'tiltfile' },
         terraform = { 'terraform' },
         typescript = { 'typescript' },
         vim = { 'vim' },
