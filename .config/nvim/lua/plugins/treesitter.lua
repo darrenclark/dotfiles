@@ -29,7 +29,7 @@ return {
         query = { 'query' },
         rust = { 'rust' },
         starlark = { 'bzl', 'tiltfile' },
-        terraform = { 'terraform' },
+        terraform = { 'terraform', 'terraform-vars' },
         typescript = { 'typescript' },
         vim = { 'vim' },
         yaml = { 'yaml' },
@@ -56,6 +56,8 @@ return {
       })
 
       vim.treesitter.language.register('starlark', 'tiltfile')
+      vim.treesitter.language.register('bash', 'sh')
+      vim.treesitter.language.register('bash', 'zsh')
 
       -- TODO: Indent? Fold?
     end
