@@ -3,6 +3,17 @@
   "env": {
     "DISABLE_AUTOUPDATER": "true"
   },
+  "includeGitInstructions": false,
+  "permissions": {
+    "allow": [
+      "Bash(jj git remote list:*)",
+      "Bash(jj workspace update-stale)",
+      "Bash(jj file show:*)",
+      "Bash(jj show:*)",
+      "Bash(jj diff:*)",
+      "Bash(jj log:*)"
+    ]
+  },
   "hooks": {
     "Notification": [
       {
@@ -20,16 +31,5 @@
       }
     ]
   },
-  "model": "claude-opus-4-5",
-  "includeGitInstructions": false,
-  "permissions": {
-    "allow": [
-      "Bash(jj git remote list:*)",
-      "Bash(jj workspace update-stale)",
-      "Bash(jj file show:*)",
-      "Bash(jj show:*)",
-      "Bash(jj diff:*)",
-      "Bash(jj log:*)"
-    ]
-  }
+  "model": "claude-opus-4-5"
 }
