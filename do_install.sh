@@ -95,11 +95,74 @@ function copy_ai_configs() {
     ln -n -v -s "$PWD/$file" "$HOME/.claude/$(basename $file)" || true
   done
 
+  # Codex
+  mkdir -v -p "$HOME/.codex"
+  merge_codex_configs
+  for file in ai/codex/*; do
+    if [[ "$file" = *"config.toml" ]]; then
+      continue # handled by merge_codex_configs
+    fi
+
+    ln -n -v -s "$PWD/$file" "$HOME/.codex/$(basename $file)" || true
+  done
+
   # skills - all agents
   mkdir -v -p "$HOME/.claude/skills"
+  mkdir -v -p "$HOME/.agents/skills"
   for file in ai/skills/*; do
     ln -n -v -s "$PWD/$file" "$HOME/.claude/skills/$(basename $file)" || true
+    ln -n -v -s "$PWD/$file" "$HOME/.agents/skills/$(basename $file)" || true
   done
+}
+
+function merge_codex_configs() {
+  local local_config="$HOME/.codex/config.toml"
+  local shared_config="ai/codex/config.toml"
+  local backup_config="${local_config}.bak"
+  local project_blocks_tmp=""
+
+  if [[ ! -f "$local_config" ]]; then
+    cp "$shared_config" "$local_config"
+    return 0
+  fi
+
+  cp "$local_config" "$backup_config"
+
+  project_blocks_tmp=$(mktemp)
+
+  awk '
+    BEGIN {
+      in_project_block = 0
+      printed_any = 0
+    }
+    /^\[projects\."/ {
+      if (printed_any) {
+        print ""
+      }
+      in_project_block = 1
+      printed_any = 1
+      print
+      next
+    }
+    /^\[/ {
+      in_project_block = 0
+    }
+    in_project_block {
+      if ($0 ~ /^[[:space:]]*$/) {
+        next
+      }
+      print
+    }
+  ' "$backup_config" > "$project_blocks_tmp"
+
+  cp "$shared_config" "$local_config"
+
+  if [[ -s "$project_blocks_tmp" ]]; then
+    printf "\n" >> "$local_config"
+    cat "$project_blocks_tmp" >> "$local_config"
+  fi
+
+  rm -f "$project_blocks_tmp"
 }
 
 function install_brew_if_needed() {

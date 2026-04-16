@@ -1,0 +1,8 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+check_for_update_on_startup = false
+
+notify = ["bash", "-c", "~/.codex/hooks/notify.sh"]
+
+[tui]
+notification_method = "bel"
