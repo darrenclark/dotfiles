@@ -31,5 +31,6 @@
       }
     ]
   },
-  "model": "claude-opus-4-5"
+  "effortLevel": "xhigh",
+  "skipAutoPermissionPrompt": true
 }
