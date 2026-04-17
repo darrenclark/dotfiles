@@ -10,3 +10,7 @@ split-divider-color = #333333
 macos-titlebar-style = hidden
 
 link-url = true
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
