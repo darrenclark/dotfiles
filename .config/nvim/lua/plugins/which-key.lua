@@ -13,6 +13,7 @@ return {
       { "<leader>e", group = "LSP" },
       { "<leader>h", group = "Httpyac" },
       { "<leader>n", group = "Node" },
+      { "<leader>r", group = "jj-review" },
     })
   end,
   opts = {

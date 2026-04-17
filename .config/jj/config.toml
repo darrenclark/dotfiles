@@ -55,6 +55,11 @@ URL="${REMOTE_URL}/compare/${BASE}...${HEAD}?expand=1"
 echo "$URL"
 open "$URL"
 """, ""]
+# Review in Neovim with JJReview
+review = ["util", "exec", "--", "bash", "-c", """
+REV="${1:-@}"
+nvim "+JJReview -r $REV"
+""", ""]
 
 [revsets]
 log = 'present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | (mine() & bookmarks())'
