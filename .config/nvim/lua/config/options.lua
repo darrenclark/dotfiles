@@ -30,3 +30,9 @@ vim.opt.undofile = true
 
 -- Live substitution
 vim.opt.inccommand = 'split'
+
+-- disable providers - not needed and (python3 at least) causes slow boot times
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0

@@ -361,6 +361,11 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 
+# tmux new or attach, default to 'main' session
+function ta() {
+  tmux new -A -s "${1:-main}"
+}
+
 # Load machine-specific config (if present)
 [ -f ~/.local.zsh ] && source ~/.local.zsh
 
