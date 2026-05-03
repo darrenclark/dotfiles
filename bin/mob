@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Unlock the default keychain (prompts for password if needed)
+security unlock-keychain
+
+# Attach to or create tmux session named "mobile"
+tmux new-session -A -s mobile
