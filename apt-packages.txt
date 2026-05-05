@@ -5,6 +5,7 @@ automake
 build-essential
 curl
 git
+jj
 jq
 libbz2-dev
 libffi-dev

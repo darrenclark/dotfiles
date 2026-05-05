@@ -32,7 +32,7 @@ function detect_os() {
   macos)
     export PACKAGE_MANAGER=brew
   ;;
-  ubuntu)
+  ubuntu|debian)
     export PACKAGE_MANAGER=apt
   ;;
   *)
@@ -43,7 +43,7 @@ function detect_os() {
 
 function is_mac() { [[ $OS = Darwin ]] }
 function is_linux() { [[ $OS = Linux ]] }
-function is_github_codespaces { [[ ! -z "${GITHUB_CODESPACE_TOKEN-}" ]] }
+function is_devcontainer { [[ ! -z "${GITHUB_CODESPACE_TOKEN-}" ]] || [[ ! -z "${DEVCONTAINER-}" ]] }
 
 function is_arm64() { [[ $(uname -m) = arm64 ]] || [[ $(uname -m) = aarch64 ]] }
 
@@ -352,14 +352,14 @@ is_mac && macos_defaults
 is_brew && install_brew_if_needed
 is_brew && brew_bundle_install
 is_apt && install_apt_packages
-! is_github_codespaces && install_asdf_plugins
-! is_github_codespaces && set_asdf_global_versions
-! is_github_codespaces && install_go
-! is_github_codespaces && install_rust
-! is_github_codespaces && install_rust_nextest
-! is_github_codespaces && ocaml_setup
-! is_github_codespaces && install_nim_lsp
-! is_github_codespaces && install_dotnet
+! is_devcontainer && install_asdf_plugins
+! is_devcontainer && set_asdf_global_versions
+! is_devcontainer && install_go
+! is_devcontainer && install_rust
+! is_devcontainer && install_rust_nextest
+! is_devcontainer && ocaml_setup
+! is_devcontainer && install_nim_lsp
+! is_devcontainer && install_dotnet
 
 
 print_step "Done!"
