@@ -366,6 +366,9 @@ function ta() {
   tmux new -A -s "${1:-main}"
 }
 
+# Fix stale SSH socket in tmux sessions
+alias fixssh='eval $(tmux show-env -s SSH_AUTH_SOCK)'
+
 # Load machine-specific config (if present)
 [ -f ~/.local.zsh ] && source ~/.local.zsh
 
