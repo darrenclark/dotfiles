@@ -199,6 +199,36 @@ function install_apt_packages() {
   grep -vE '^#' apt-packages.txt | xargs sudo apt install -y
 }
 
+function install_jj_linux() {
+  print_step "Installing jj..."
+
+  local jj_version=v0.40.0
+  local download_path=/tmp/jj.tar.gz
+  local extract_dir=/tmp/jj-extract
+
+  if command -v jj >/dev/null && [[ $(jj --version 2>/dev/null) = *"${jj_version#v}"* ]]; then
+    echo "Skipping, already installed."
+    return 0
+  fi
+
+  local arch=""
+  if is_arm64 ; then
+    arch=aarch64
+  else
+    arch=x86_64
+  fi
+
+  curl -L -o $download_path "https://github.com/jj-vcs/jj/releases/download/${jj_version}/jj-${jj_version}-${arch}-unknown-linux-musl.tar.gz"
+
+  rm -rf $extract_dir
+  mkdir -p $extract_dir
+  tar -C $extract_dir -xzf $download_path
+
+  sudo mv $extract_dir/jj /usr/local/bin/jj
+
+  rm -rf $download_path $extract_dir
+}
+
 function macos_defaults() {
   print_step "Setting macOS defaults..."
 
@@ -352,6 +382,7 @@ is_mac && macos_defaults
 is_brew && install_brew_if_needed
 is_brew && brew_bundle_install
 is_apt && install_apt_packages
+is_apt && install_jj_linux
 ! is_devcontainer && install_asdf_plugins
 ! is_devcontainer && set_asdf_global_versions
 ! is_devcontainer && install_go
